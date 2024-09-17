@@ -1,0 +1,472 @@
+/* Cuerpo de la pagina */
+body {
+    font-family: "DM Serif Text", serif;
+    display: flex;
+    /*contenedor flexible*/
+    font-family: Arial, sans-serif;
+    /*fuente*/
+    flex-direction: column;
+    /*los elementos se organizarán en columna*/
+    max-height: 100vh;
+    background-color: #ede7e2;
+    /*color de fondo*/
+    margin: 0;
+    /*elimina el margen exterior del cuerpo*/
+    padding: 0;
+    /*elimina el relleno interior del cuerpo*/
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Contenido principal (main) */
+main {
+    flex: 1;
+    /* hace que el elemento main ocupe el espacio restante en la pag*/
+    display: flex;
+    /*usa un layout flexible dentro del main*/
+    flex-direction: column;
+    /*organiza los elementos en columna*/
+    align-items: center;
+    /* Centra horizontalmente */
+    text-align: center;
+    /* Centra el texto */
+    padding: 20px;
+    /*espacio interno alrededor del contenido*/
+}
+
+/* Encabezado */
+header {
+    background-color: #333;
+    /*color de fondo*/
+    color: #fff;
+    /*color del texto*/
+    padding: 10px 0;
+    /*espacio interno arriba y abajo*/
+    text-align: center;
+    /*centra el contenido*/
+}
+
+.header-index {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.7)),
+        url(../imagenes/prueba.avif);
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.header-contenido {
+    max-width: 80%;
+    margin: 0 auto;
+    /* Si quieres centrar horizontalmente el texto */
+}
+
+.header-index h1,
+.header-explorar h1,
+.header-contacto h1 {
+    font-family: "DM Serif Text", serif;
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.header-index p {
+    font-family: "DM Serif Text", serif;
+    font-size: 1.5rem;
+    margin-top: 0;
+    font-weight: 300;
+}
+
+.header-explorar {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.7)),
+        url(../imagenes/fondo3.png);
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.header-contacto {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.7)),
+        url(../imagenes/fondo1.jpg);
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+nav {
+    background-color: #7d2429;
+    padding: 5px;
+    /*espacio interno alrededor del contenido*/
+    text-align: center;
+}
+
+/* Enlaces del nav */
+nav a {
+    color: #fff;
+    margin: 0 15px;
+    /*margen horizontal entre los enlaces */
+    text-decoration: none;
+    /*elimina el subrayado de los enlaces*/
+}
+
+.menu-horizontal {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    margin: 0%;
+}
+
+.menu-horizontal li {
+    align-content: center;
+}
+
+.menu-horizontal>li>a {
+    display: block;
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+}
+
+.menu-horizontal>li:hover {
+    /*cuando el usuario pase el puntero sobre la lista*/
+    background-color: #9f352e;
+}
+
+/* Títulos h2*/
+h2 {
+    color: #333;
+}
+
+section {
+    padding: 20px;
+    flex-wrap: wrap;
+    /*ordena los elementos en mas de una fila de ser necesario*/
+    justify-content: space-around;
+    /*distribuye el espacio entre los elementos*/
+}
+
+.carrusel {
+    width: 100%;
+    /*cambia a 100% para que el carrusel se ajuste al ancho del contenedora*/
+    height: auto;
+    /*ajusta la altura automáticamente para mantener la relación de aspecto*/
+    margin: 50px auto 0;
+    overflow: hidden;
+    /*oculta cualquier contenido que sobresalga del área visible del carrusel para asegurar que solo una imagen sea visible a la vez*/
+}
+
+.carrusel ul {
+    display: flex;
+    /*las imagenes se alinean un una fila orizontal*/
+    padding: 0;
+    width: 500%;
+    /*100% * número de imágenes, ancho total del contendor: una imagen cada 100%*/
+    animation: slide 30s infinite alternate ease-in-out;
+    /*animacion infinita, alternada y suave, de modo que cuando llega al final vuelve hacia atras mostrando las imagenes en orden inverso*/
+    margin: 0;
+    transition: margin-left 3s;
+    /*suaviza la transición*/
+}
+
+.carrusel li {
+    width: 100%;
+    /*cada imagen ocupa el 100% del contenedor del carrusel*/
+    list-style: none;
+    /*elimina el estilo de la lista predeterminado*/
+    position: relative;
+    /*posicion interna de los elementos*/
+}
+
+.carrusel img {
+    width: 85%;
+    /*asegura que las imágenes ocupen todo el ancho del contenedor*/
+    height: auto;
+    /*ajusta la altura automáticamente para mantener la relación de aspecto*/
+}
+
+/* Animacion del carrusel */
+@keyframes slide {
+    0% {
+        /*la primera imagen es visible*/
+        margin-left: 0;
+    }
+
+    20% {
+        /*el contenedor se desplaza a la izquierda, mostrando la segunda imagen*/
+        margin-left: -100%;
+    }
+
+    40% {
+        /*muestra la tercera imagen*/
+        margin-left: -200%;
+    }
+
+    65% {
+        /*muestra la cuarta imagen*/
+        margin-left: -300%;
+    }
+
+    80% {
+        /*muestra la quinta imagen*/
+        margin-left: -400;
+    }
+
+    100% {
+        /*permanece en la quinta imagen, completando el ciclo */
+        margin-left: -400%;
+    }
+}
+
+.pagina-peliculas section {
+    display: flex;
+    /*ordena los elementos en una misma fila*/
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pagina-peliculas a {
+    color: inherit;
+    /* Hereda el color del texto del contenedor (esto hace que el enlace tome el color del texto normal) */
+    text-decoration: none;
+    /* Elimina el subrayado del enlace */
+}
+
+table.tabla-generos {
+    width: 80%;
+    max-width: 600px;
+    border-spacing: 0 10px;
+    /* Espaciado entre filas */
+    border-collapse: separate;
+}
+
+.tabla-generos th,
+.tabla-generos td {
+    padding: 4px;
+    text-align: center;
+}
+
+.tabla-generos th {
+    background-color: #9f352e;
+    color: white;
+    font-size: 1.1em;
+    border-radius: 5px 5px 0 0;
+    /* Bordes redondeados en el encabezado */
+}
+
+.tabla-generos td {
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    /* Bordes redondeados en las celdas */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    height: 20px;
+    /* Altura fija más pequeña */
+}
+
+.tabla-generos tr:hover td {
+    background-color: #d6543e;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    /* Sombras más pronunciadas al pasar el ratón */
+}
+
+.tabla-generos a {
+    color: #34495e;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 60%;
+    padding: 10px;
+}
+
+.tabla-generos a:hover {
+    text-decoration: none;
+    color: #ede7e2;
+}
+
+.header-detalles {
+    background-color: #ab0800;
+}
+
+/* Contenedor de cada película */
+.pelicula {
+    display: inline-block;
+    background-color: #fff;
+    border-radius: 5px;
+    /*esquinas redondeadas*/
+    padding: 10px;
+    margin: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /*sombra debajo del contenedor*/
+}
+
+/* Imagenes del contenedor movie */
+.pelicula-img {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    /*margen debajo de la imagen*/
+    width: 200px;
+    /*ancho de la imagen*/
+    height: 300px;
+    /*altura de la imagen*/
+}
+
+.pelicula::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.pelicula h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.pelicula p {
+    text-align: left;
+    /* Alinea el texto a la izquierda */
+    margin: 0;
+    /* Elimina el margen si es necesario */
+}
+
+button {
+    padding: 0.5rem 1rem;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    color: #ede7e2;
+}
+
+button.like:hover {
+    /*cuando el usuario pase el puntero sobre el boton*/
+    background-color: #9bff4c;
+}
+
+button.dislike:hover {
+    background-color: #bc0805;
+}
+
+.like button,
+.dislike button {
+    background: transparent;
+    /*elimina el fondo del botón */
+    border: none;
+    /*elimina el borde del botón */
+    padding: 0;
+    /*elimina el padding del botón */
+    cursor: pointer;
+    /*cambia el cursor al pasar sobre el botón */
+    box-shadow: none;
+}
+
+.like button img,
+.dislike button img {
+    width: 24px;
+    /*ajusta el tamaño del ícono según sea necesario */
+    height: auto;
+    /*mntiene la relación de aspecto */
+}
+
+.trailer {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.trailer iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#formulario {
+    display: block;
+    background-color: #7d2429;
+    color: #ede7e2;
+    width: 80%;
+    /* Ajusta el ancho del formulario como un porcentaje del contenedor padre */
+    max-width: 600px;
+    /* Opcional: Establece un ancho máximo para evitar que el formulario sea demasiado ancho en pantallas grandes */
+    margin: 0 auto;
+    /* Centra el formulario horizontalmente */
+    padding: 20px;
+    /* Añade algo de relleno interno para mejorar la apariencia */
+}
+
+#formulario h2 {
+    color: #ede7e2;
+}
+
+/* Formulario*/
+form {
+    margin: 15px 0;
+    text-align: center;
+}
+
+/* Cuadro de texto del formulario */
+label {
+    display: block;
+    /*hace que el ocupe todo el ancho de su contenedor*/
+    margin-bottom: 5px;
+    /*añade un margen de 5 píxeles debajo del label*/
+}
+
+/* Ingreso de datos del formulario */
+input {
+    padding: 10px;
+    margin-bottom: 1rem;
+    text-align: center;
+    width: 80%;
+}
+
+button {
+    color: #ede7e2;
+    background-color: #333;
+    text-align: center;
+}
+
+button:hover {
+    background-color: black;
+}
+
+footer {
+    background-color: #ff8760;
+    color: black;
+    padding: 2px;
+    /*reduce el padding para ocupar menos espacio*/
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.8rem;
+    /*fuente más pequeña*/
+    line-height: 1.2;
+    /*reduce el interlineado*/
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2);
+    /*sombra sutil para darle profundidad */
+    position: relative;
+    /*hace que el elemento se mantenga en su posicion*/
+}
