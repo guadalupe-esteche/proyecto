@@ -6,6 +6,7 @@
         <title>Alerta roja</title>
         <link rel="stylesheet" href="../estilos/estilos.css">
         <link rel="stylesheet" href="../estilos/responsive.css">
+        <script src="../js/detalles.js" defer></script>
     </head>
 
     <body>
@@ -46,15 +47,19 @@
                         title="YouTube video player"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen></iframe>
-                </div>
-
+            </div>
                 <h4>¿Te gustó esta película?</h4>
-                <button class="like button">
+                <button id="like-btn" class="like button">
                     <img src="../imagenes/like.png" title="like">
+                    <span id="like-contador">0</span>
                 </button>
-                <button class="dislike button">
+                <button id="dislike-btn" class="dislike button">
                     <img src="../imagenes/dislike.png" title="dislike">
+                    <span id="dislike-contador">0</span>
                 </button>
+            </div>
+            <div id="notificacion" class="notificacion">
+                <p id="mensaje-notificacion"></p>
             </div>
         </main>
         <footer>
