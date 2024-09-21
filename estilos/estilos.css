@@ -462,6 +462,20 @@ input {
     width: 80%;
 }
 
+#show-login, #show-registro {
+    color:whitesmoke;
+    padding: 5px;
+    font-weight: bold; /* Hace el texto más grueso */
+    cursor: pointer;
+    transition: color 0.3s ease; /* Añade una transición suave al cambiar de color */
+}
+
+#show-login:hover, #show-registro:hover {
+    background-color: #9f352e;
+    text-decoration: underline; /* Añade un subrayado al pasar el cursor */
+}
+
+
 button {
     color: #ede7e2;
     background-color: #333;
