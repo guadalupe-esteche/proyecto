@@ -71,3 +71,9 @@
         width: 100%;
     }
 }
+
+@media (max-width: 768px) {
+    .pagina-peliculas {
+        position: relative; /* Para posicionar los botones de navegación */
+    }
+}

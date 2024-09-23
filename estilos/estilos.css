@@ -354,8 +354,40 @@ section {
     gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
+    overflow-x: auto; /* Permite el deslizamiento horizontal */
+    scrollbar-width: none; 
+    position: relative;
 }
 
+.pagina-peliculas section::-webkit-scrollbar {
+    display: none; /* Oculta la barra de desplazamiento en Chrome, Safari, etc. */
+}
+
+.pelicula {
+    flex: 0 0 auto;
+    margin-right: 20px;
+}
+
+/* Botones de navegación */
+.nav-btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.nav-btn.izq {
+    left: 10px;
+}
+
+.nav-btn.der {
+    right: 10px;
+}
 .pagina-peliculas a {
     color: inherit;
     /* Hereda el color del texto del contenedor (esto hace que el enlace tome el color del texto normal) */
@@ -408,11 +440,13 @@ table.tabla-generos {
     width: 100%;
     height: 60%;
     padding: 10px;
+    font-weight: bo;
 }
 
 .tabla-generos a:hover {
     text-decoration: none;
     color: #ede7e2;
+    transition: color 0.3s;
 }
 
 .header-detalles {
