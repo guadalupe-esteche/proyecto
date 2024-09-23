@@ -53,3 +53,21 @@
         /*ajusta el tamaño del botón*/
     }
 }
+
+@media (max-width: 768px) {
+    #preguntas-frecuentes {
+        padding: 15px;
+    }
+
+    #preguntas-frecuentes h2 {
+        font-size: 24px;
+    }
+
+    #preguntas-frecuentes h3 {
+        font-size: 20px;
+    }
+
+    #preguntas-frecuentes textarea {
+        width: 100%;
+    }
+}

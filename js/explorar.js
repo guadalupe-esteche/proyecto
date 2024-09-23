@@ -1,35 +1,40 @@
 function filtrarPeliculas() {
     let input = document.getElementById('buscar').value.toLowerCase();
     let peliculas = document.querySelectorAll('.pelicula h3');
-    let hayPeliculasVisibles = false; // Variable para rastrear si hay películas visibles
-
-    // Oculta todas las secciones de películas
     let secciones = document.querySelectorAll('main > section');
+    let hayPeliculasVisibles = false;
+
+    // Oculta todas las películas y secciones al inicio
     secciones.forEach(seccion => {
-        seccion.style.display = 'none'; // Oculta todas las secciones
+        seccion.style.display = 'none';
     });
 
     peliculas.forEach(pelicula => {
         let titulo = pelicula.innerText.toLowerCase();
+        let seccion = pelicula.closest('section');
+
         if (titulo.includes(input)) {
-            pelicula.parentElement.style.display = '';  // Muestra la película
-            hayPeliculasVisibles = true; // Hay al menos una película visible
-        
-            // Determina a qué sección pertenece la película y la muestra
-            seccionVisible = pelicula.closest('section');
-            seccionVisible.style.display = ''; // Muestra la sección correspondiente
+            // Mostrar la película y su sección
+            pelicula.parentElement.style.display = ''; // Muestra la película
+            seccion.style.display = ''; // Muestra la sección a la que pertenece
+            hayPeliculasVisibles = true;
         } else {
-            pelicula.parentElement.style.display = 'none';  // Oculta la película
+            // Oculta la película si no coincide
+            pelicula.parentElement.style.display = 'none';
         }
     });
 
-    // Muestra u oculta la tabla de géneros según la visibilidad de las películas
+    // Muestra la tabla de géneros si no hay películas visibles
     let tablaGeneros = document.querySelector('.tabla-generos');
     if (hayPeliculasVisibles) {
-        tablaGeneros.style.display = 'none'; // Oculta la tabla si no hay películas
+        tablaGeneros.style.display = 'none'; // Oculta la tabla si hay coincidencias
     } else {
-        tablaGeneros.style.display = ''; // Muestra la tabla de géneros
+        tablaGeneros.style.display = ''; // Muestra la tabla si no hay coincidencias
     }
 }
 
-
+function detenerEnter(event) {
+    if (event.key === "Enter") {
+        event.preventDefault(); // Evita que se ejecute el comportamiento predeterminado al presionar Enter
+    }
+}
