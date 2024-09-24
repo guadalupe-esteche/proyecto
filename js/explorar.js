@@ -40,22 +40,35 @@ function detenerEnter(event) {
 }
 
 function deslizarSeccion(direccion, seccionId) {
-    const seccion = document.getElementById(seccionId);
-    const desplazamiento = seccion.clientWidth / 2; // Ajusta la cantidad de desplazamiento si es necesario
-    if (direccion === 'izquierda') {
-        seccion.scrollLeft -= desplazamiento;
-        console.log(`Desplazado a la izquierda: ${seccion.scrollLeft}`)
-    } else {
-        seccion.scrollLeft += desplazamiento;
+
+    if (window.innerWidth > 768) {
+        return; // Si la pantalla es mayor a 768px, no hacer nada
     }
+
+    const seccion = document.getElementById(seccionId);
+    const peliculas = seccion.querySelectorAll('.pelicula');
+    const totalPeliculas = peliculas.length;
+    let peliculaVisible = Array.from(peliculas).findIndex(pelicula => pelicula.style.display === 'block');
+
+    // Determina la nueva película visible
+    if (direccion === 'izquierda') {
+        peliculaVisible = (peliculaVisible > 0) ? peliculaVisible - 1 : 0;
+    } else {
+        peliculaVisible = (peliculaVisible < totalPeliculas - 1) ? peliculaVisible + 1 : totalPeliculas - 1;
+    }
+
+    // Oculta todas las películas y muestra solo la visible
+    peliculas.forEach((pelicula, index) => {
+        pelicula.style.display = (index === peliculaVisible) ? 'block' : 'none';
+    });
 }
 
-// Lógica para ocultar películas en función del tamaño de la ventana
+// Ajustar películas al cargar y al redimensionar la ventana
 function ajustarPeliculas() {
     const secciones = document.querySelectorAll('main > section');
     secciones.forEach(seccion => {
         const peliculas = seccion.querySelectorAll('.pelicula');
-        if (window.innerWidth <= 768) { // Cambia el límite de ancho según sea necesario
+        if (window.innerWidth <= 768) {
             peliculas.forEach((pelicula, index) => {
                 pelicula.style.display = index === 0 ? 'block' : 'none'; // Muestra solo la primera película
             });
@@ -67,6 +80,5 @@ function ajustarPeliculas() {
     });
 }
 
-// Ajustar películas al cargar y al redimensionar la ventana
 window.onload = ajustarPeliculas;
 window.onresize = ajustarPeliculas;

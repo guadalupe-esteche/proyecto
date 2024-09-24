@@ -14,8 +14,6 @@ body {
     /*elimina el margen exterior del cuerpo*/
     padding: 0;
     /*elimina el relleno interior del cuerpo*/
-    width: 100%;
-    overflow-x: hidden;
 }
 
 /* Contenido principal (main) */
@@ -185,6 +183,7 @@ section {
     border-radius: 12px;
     padding: 20px;
     margin: 20px;
+    position: relative;
 }
 
 .carrusel {
