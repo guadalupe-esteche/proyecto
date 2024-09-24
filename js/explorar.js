@@ -2,6 +2,8 @@ function filtrarPeliculas() {
     let input = document.getElementById('buscar').value.toLowerCase();
     let peliculas = document.querySelectorAll('.pelicula h3');
     let secciones = document.querySelectorAll('main > section');
+    let mensajeNoEncontrado = document.getElementById('mensaje-no-encontrado');
+
     let hayPeliculasVisibles = false;
 
     // Oculta todas las películas y secciones al inicio
@@ -24,12 +26,36 @@ function filtrarPeliculas() {
         }
     });
 
-    // Muestra la tabla de géneros si no hay películas visibles
+    // Mostrar u ocultar el mensaje si no se encuentran coincidencias
+    if (!hayPeliculasVisibles) {
+        mensajeNoEncontrado.style.display = 'block'; // Muestra el mensaje
+    } else {
+        mensajeNoEncontrado.style.display = 'none'; // Oculta el mensaje si hay coincidencias
+    }
+
+    // Ocultar la tabla de géneros siempre que haya una búsqueda activa
     let tablaGeneros = document.querySelector('.tabla-generos');
+    tablaGeneros.style.display = hayPeliculasVisibles ? 'none' : '';
+
+    // Muestra la tabla de géneros si no hay películas visibles
     if (hayPeliculasVisibles) {
         tablaGeneros.style.display = 'none'; // Oculta la tabla si hay coincidencias
     } else {
         tablaGeneros.style.display = ''; // Muestra la tabla si no hay coincidencias
+        let mensajeNoEncontrado = document.getElementById('mensaje-no-encontrado');
+    if (!hayPeliculasVisibles) {
+        if (!mensajeNoEncontrado) {
+            mensajeNoEncontrado = document.createElement('p');
+            mensajeNoEncontrado.id = 'mensaje-no-encontrado';
+            mensajeNoEncontrado.style.color = 'red';
+            mensajeNoEncontrado.innerText = 'No se encontró ninguna película con ese nombre.';
+            document.querySelector('main').appendChild(mensajeNoEncontrado);
+        } else {
+            mensajeNoEncontrado.style.display = 'block';
+        }
+    } else if (mensajeNoEncontrado) {
+        mensajeNoEncontrado.style.display = 'none'; // Oculta el mensaje si se encuentran películas
+    }
     }
 }
 

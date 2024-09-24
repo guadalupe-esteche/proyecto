@@ -183,7 +183,6 @@ section {
     border-radius: 12px;
     padding: 20px;
     margin: 20px;
-    position: relative;
 }
 
 .carrusel {
@@ -367,6 +366,14 @@ section {
     margin-right: 20px;
 }
 
+#mensaje-no-encontrado {
+    color: red;
+    font-size: 1.2em;
+    margin-top: 20px;
+    text-align: center;
+    display: none;
+}
+
 /* Botones de navegación */
 .nav-btn {
     background-color: #333;
@@ -378,6 +385,12 @@ section {
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
+    opacity: 0.5; /* Haz los botones semi-transparentes */
+    transition: opacity 0.3s ease; /* Añade una transición suave al cambiar la opacidad */
+}
+
+.nav-btn:hover {
+    opacity: 1; /* Totalmente visible al pasar el cursor */
 }
 
 .nav-btn.izq {
