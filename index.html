@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap" rel="stylesheet">
+    <script src="js/index.js" defer></script>
 </head>
 
 <body>
@@ -64,24 +65,22 @@
 
         <section id="preguntas-frecuentes">
             <h2>Preguntas Frecuentes</h2>
-            <div>
-                <h3>¿Cómo me registro en el blog?</h3>
-                <p>Para registrarte, ve a la sección de contacto y llena el <a href="paginas/contacto.html">formulario
-                        de registro</a></p>
+            <div class="pregunta">
+                <h3 class="toggle">¿Cómo me registro en el blog?</h3>
+                <p class="respuesta">Para registrarte, ve a la sección de contacto y llena el <a href="paginas/contacto.html">formulario de registro</a></p>
             </div>
-            <div>
-                <h3>¿Cómo puedo sugerir una película?</h3>
-                <p>Puedes sugerir películas en la siguiente sección o enviándonos un mensaje en nuestras redes sociales.
-                </p>
+            <div class="pregunta">
+                <h3 class="toggle">¿Cómo puedo sugerir una película?</h3>
+                <p class="respuesta">Puedes sugerir películas en la siguiente sección o enviándonos un mensaje en nuestras redes sociales.</p>
             </div>
             <form method="post">
                 Sugerir películas:<br>
-                <textarea name="comentarios" rows="3" cols="60" required
-                    placeholder="Sugiere una película..."></textarea>
+                <textarea name="comentarios" rows="3" cols="60" required placeholder="Sugiere una película..."></textarea>
                 <br>
                 <input type="submit" value="Enviar">
             </form>
         </section>
+        
     </main>
     <footer>
         <p>&copy; 2024 Luz, Cámara, Blog</p>

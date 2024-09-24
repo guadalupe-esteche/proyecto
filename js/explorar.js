@@ -37,26 +37,6 @@ function filtrarPeliculas() {
     let tablaGeneros = document.querySelector('.tabla-generos');
     tablaGeneros.style.display = hayPeliculasVisibles ? 'none' : '';
 
-    // Muestra la tabla de géneros si no hay películas visibles
-    if (hayPeliculasVisibles) {
-        tablaGeneros.style.display = 'none'; // Oculta la tabla si hay coincidencias
-    } else {
-        tablaGeneros.style.display = ''; // Muestra la tabla si no hay coincidencias
-        let mensajeNoEncontrado = document.getElementById('mensaje-no-encontrado');
-    if (!hayPeliculasVisibles) {
-        if (!mensajeNoEncontrado) {
-            mensajeNoEncontrado = document.createElement('p');
-            mensajeNoEncontrado.id = 'mensaje-no-encontrado';
-            mensajeNoEncontrado.style.color = 'red';
-            mensajeNoEncontrado.innerText = 'No se encontró ninguna película con ese nombre.';
-            document.querySelector('main').appendChild(mensajeNoEncontrado);
-        } else {
-            mensajeNoEncontrado.style.display = 'block';
-        }
-    } else if (mensajeNoEncontrado) {
-        mensajeNoEncontrado.style.display = 'none'; // Oculta el mensaje si se encuentran películas
-    }
-    }
 }
 
 function detenerEnter(event) {
