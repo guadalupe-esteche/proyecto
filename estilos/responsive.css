@@ -12,23 +12,18 @@
         margin: 0 auto;
         /*centra la imagen*/
     }
-}
 
-@media (max-width: 768px) {
     section {
         justify-content: center;
-        flex-wrap: nowrap; /* No permite que las películas se muevan a la siguiente línea */
+        flex-wrap: nowrap;
+        /* No permite que las películas se muevan a la siguiente línea */
     }
-}
 
-@media (max-width: 768px) {
     .slider-box img {
         width: 100%;
         /*las imágenes ocuparán el 100% del ancho en pantallas pequeñas*/
     }
-}
 
-@media (max-width: 768px) {
     body {
         padding: 10px;
         /*reduce el padding en pantallas pequeñas*/
@@ -50,9 +45,7 @@
         padding: 0.3rem 0.5rem;
         /*ajusta el tamaño del botón*/
     }
-}
 
-@media (max-width: 768px) {
     #preguntas-frecuentes {
         padding: 15px;
     }
@@ -68,11 +61,10 @@
     #preguntas-frecuentes textarea {
         width: 100%;
     }
-}
 
-@media (max-width: 768px) {
     .pagina-peliculas {
-        position: relative; /* Para posicionar los botones de navegación */
+        position: relative;
+        /* Para posicionar los botones de navegación */
     }
 
     .pagina-peliculas section {

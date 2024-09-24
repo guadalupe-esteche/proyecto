@@ -8,7 +8,7 @@ body {
     flex-direction: column;
     /*los elementos se organizarán en columna*/
     max-height: 100vh;
-    background-color: #e0e0e0; 
+    background-color: #e0e0e0;
     /*color de fondo*/
     margin: 0;
     /*elimina el margen exterior del cuerpo*/
@@ -179,7 +179,8 @@ section {
     justify-content: space-around;
     /*distribuye el espacio entre los elementos*/
     background-color: white;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra interna leve */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Sombra interna leve */
     border-radius: 12px;
     padding: 20px;
     margin: 20px;
@@ -352,13 +353,16 @@ section {
     gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
-    overflow-x: auto; /* Permite el deslizamiento horizontal */
-    scrollbar-width: none; 
+    overflow-x: auto;
+    /* Permite el deslizamiento horizontal */
+    scrollbar-width: none;
     position: relative;
+    background-color: #ffbe5d;
 }
 
 .pagina-peliculas section::-webkit-scrollbar {
-    display: none; /* Oculta la barra de desplazamiento en Chrome, Safari, etc. */
+    display: none;
+    /* Oculta la barra de desplazamiento en Chrome, Safari, etc. */
 }
 
 .pelicula {
@@ -385,12 +389,15 @@ section {
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
-    opacity: 0.5; /* Haz los botones semi-transparentes */
-    transition: opacity 0.3s ease; /* Añade una transición suave al cambiar la opacidad */
+    opacity: 0.5;
+    /* Haz los botones semi-transparentes */
+    transition: opacity 0.3s ease;
+    /* Añade una transición suave al cambiar la opacidad */
 }
 
 .nav-btn:hover {
-    opacity: 1; /* Totalmente visible al pasar el cursor */
+    opacity: 1;
+    /* Totalmente visible al pasar el cursor */
 }
 
 .nav-btn.izq {
@@ -400,6 +407,7 @@ section {
 .nav-btn.der {
     right: 10px;
 }
+
 .pagina-peliculas a {
     color: inherit;
     /* Hereda el color del texto del contenedor (esto hace que el enlace tome el color del texto normal) */
@@ -422,7 +430,7 @@ table.tabla-generos {
 }
 
 .tabla-generos th {
-    background-color: #9f352e;
+    background-color: #ec5510;
     color: white;
     font-size: 1.1em;
     border-radius: 5px 5px 0 0;
