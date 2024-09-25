@@ -50,16 +50,17 @@
         display: none;
         margin-top: 5px;
     }
-    
+
     .pregunta h3 {
         cursor: pointer;
-        color: #007bff; /* Puedes personalizar el color */
+        color: #007bff;
+        /* Puedes personalizar el color */
     }
-    
+
     .pregunta h3:hover {
         text-decoration: underline;
     }
-    
+
 
     .pagina-peliculas {
         position: relative;
@@ -126,7 +127,7 @@
         cursor: pointer;
         color: #007bff;
     }
-    
+
     .pregunta h3:hover {
         text-decoration: underline;
     }
@@ -147,6 +148,10 @@
     .nav-btn {
         display: block;
         /* Muestra los botones de navegación */
+    }
+
+    .pagina-peliculas section {
+        gap: 0;
     }
 }
 

@@ -325,7 +325,7 @@ section {
     margin-top: 10px;
 }
 
-#preguntas-frecuentes input[type="submit"] {
+#preguntas-frecuentes button[type="submit"] {
     background-color: #28a745;
     color: white;
     border: none;
