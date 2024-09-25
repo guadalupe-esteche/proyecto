@@ -50,11 +50,13 @@ function deslizarSeccion(direccion, seccionId) {
     const seccion = document.getElementById(seccionId);
     const peliculas = seccion.querySelectorAll('.pelicula');
     const totalPeliculas = peliculas.length;
-    let peliculasVisibles = 1; // Por defecto, una película visible en pantallas pequeñas
+    let peliculasVisibles = 1; // Por defecto, mostrar 1 película en pantallas pequeñas
 
-    // Definir cuántas películas mostrar según el tamaño de la pantalla
-    if (window.innerWidth > 768 && window.innerWidth <= 1024) {
+    // Determinar cuántas películas mostrar según el tamaño de la pantalla
+    if (window.innerWidth > 768 && window.innerWidth <= 1023) {
         peliculasVisibles = 2; // Mostrar 2 películas en tablets
+    } else if (window.innerWidth > 1024) {
+        return; // En pantallas grandes, no deslizamos, mostramos todas las películas
     }
 
     // Obtener el índice de la primera película visible
@@ -78,10 +80,12 @@ function ajustarPeliculas() {
     const secciones = document.querySelectorAll('main > section');
     secciones.forEach(seccion => {
         const peliculas = seccion.querySelectorAll('.pelicula');
-        let peliculasVisibles = 1; // Por defecto, mostrar una película en pantallas pequeñas
+        let peliculasVisibles = 1; // Por defecto, mostrar 1 película en pantallas pequeñas
 
         if (window.innerWidth > 768 && window.innerWidth <= 1024) {
-            peliculasVisibles = 2; // Mostrar 2 películas en pantallas de tablets
+            peliculasVisibles = 2; // Mostrar 2 películas en tablets
+        } else if (window.innerWidth > 1024) {
+            peliculasVisibles = peliculas.length; // Mostrar todas las películas en pantallas grandes
         }
 
         // Mostrar las películas iniciales según el tamaño de la pantalla

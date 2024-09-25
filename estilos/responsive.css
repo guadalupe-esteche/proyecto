@@ -77,14 +77,8 @@
     }
 }
 
-@media (min-width: 769px) {
-    .nav-btn {
-        display: none;
-    }
-}
-
-/* Pantallas medianas (de 769px a 1024px) - Tablets */
-@media (min-width: 769px) and (max-width: 1024px) {
+/* Pantallas medianas (de 769px a 1023px) - Tablets */
+@media (min-width: 769px) and (max-width: 1023px) {
     .movie {
         width: 48%;
         /* Las películas ocuparán el 48% del ancho */
@@ -156,8 +150,8 @@
     }
 }
 
-/* Pantallas grandes (desde 1025px en adelante) */
-@media (min-width: 1025px) {
+/* Pantallas grandes (desde 1024px en adelante) */
+@media (min-width: 1024px) {
     .nav-btn {
         display: none;
     }
