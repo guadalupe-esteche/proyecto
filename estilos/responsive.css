@@ -82,3 +82,83 @@
         display: none;
     }
 }
+
+/* Pantallas medianas (de 769px a 1024px) - Tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .movie {
+        width: 48%;
+        /* Las películas ocuparán el 48% del ancho */
+    }
+
+    .movie-img {
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    section {
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .slider-box img {
+        width: 100%;
+    }
+
+    body {
+        padding: 20px;
+    }
+
+    header,
+    footer {
+        font-size: 1rem;
+        padding: 15px;
+    }
+
+    nav a {
+        margin: 0 15px;
+    }
+
+    button {
+        padding: 0.5rem 1rem;
+    }
+
+    .respuesta {
+        display: none;
+        margin-top: 5px;
+    }
+
+    .pregunta h3 {
+        cursor: pointer;
+        color: #007bff;
+    }
+    
+    .pregunta h3:hover {
+        text-decoration: underline;
+    }
+
+    .pagina-peliculas {
+        position: relative;
+    }
+
+    .pagina-peliculas section {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .pelicula {
+        text-align: center;
+    }
+
+    .nav-btn {
+        display: block;
+        /* Muestra los botones de navegación */
+    }
+}
+
+/* Pantallas grandes (desde 1025px en adelante) */
+@media (min-width: 1025px) {
+    .nav-btn {
+        display: none;
+    }
+}

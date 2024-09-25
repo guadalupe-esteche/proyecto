@@ -3,12 +3,14 @@ function filtrarPeliculas() {
     let peliculas = document.querySelectorAll('.pelicula h3');
     let secciones = document.querySelectorAll('main > section');
     let mensajeNoEncontrado = document.getElementById('mensaje-no-encontrado');
-
     let hayPeliculasVisibles = false;
 
-    // Oculta todas las películas y secciones al inicio
+    // Ocultar todas las películas y secciones al inicio
+    peliculas.forEach(pelicula => {
+        pelicula.parentElement.style.display = 'none'; // Oculta las películas
+    });
     secciones.forEach(seccion => {
-        seccion.style.display = 'none';
+        seccion.style.display = 'none'; // Oculta las secciones
     });
 
     peliculas.forEach(pelicula => {
@@ -16,28 +18,27 @@ function filtrarPeliculas() {
         let seccion = pelicula.closest('section');
 
         if (titulo.includes(input)) {
-            // Mostrar la película y su sección
-            pelicula.parentElement.style.display = ''; // Muestra la película
-            seccion.style.display = ''; // Muestra la sección a la que pertenece
+            pelicula.parentElement.style.display = ''; // Mostrar la película
+            seccion.style.display = ''; // Mostrar la sección del género
             hayPeliculasVisibles = true;
-        } else {
-            // Oculta la película si no coincide
-            pelicula.parentElement.style.display = 'none';
         }
     });
 
-    // Mostrar u ocultar el mensaje si no se encuentran coincidencias
+    // Si no se encuentran películas, mostrar todas las secciones y películas
     if (!hayPeliculasVisibles) {
-        mensajeNoEncontrado.style.display = 'block'; // Muestra el mensaje
+        mensajeNoEncontrado.style.display = 'block'; // Mostrar mensaje
+        secciones.forEach(seccion => {
+            seccion.style.display = ''; // Mostrar todas las secciones si no hay coincidencias
+        });
     } else {
-        mensajeNoEncontrado.style.display = 'none'; // Oculta el mensaje si hay coincidencias
+        mensajeNoEncontrado.style.display = 'none'; // Ocultar el mensaje si hay coincidencias
     }
 
-    // Ocultar la tabla de géneros siempre que haya una búsqueda activa
+    // Mostrar la tabla de géneros si no se encuentran películas
     let tablaGeneros = document.querySelector('.tabla-generos');
-    tablaGeneros.style.display = hayPeliculasVisibles ? 'none' : '';
-
+    tablaGeneros.style.display = !hayPeliculasVisibles ? '' : 'none'; // Mostrar tabla si no hay películas
 }
+
 
 function detenerEnter(event) {
     if (event.key === "Enter") {
@@ -46,43 +47,47 @@ function detenerEnter(event) {
 }
 
 function deslizarSeccion(direccion, seccionId) {
-
-    if (window.innerWidth > 768) {
-        return; // Si la pantalla es mayor a 768px, no hacer nada
-    }
-
     const seccion = document.getElementById(seccionId);
     const peliculas = seccion.querySelectorAll('.pelicula');
     const totalPeliculas = peliculas.length;
-    let peliculaVisible = Array.from(peliculas).findIndex(pelicula => pelicula.style.display === 'block');
+    let peliculasVisibles = 1; // Por defecto, una película visible en pantallas pequeñas
 
-    // Determina la nueva película visible
-    if (direccion === 'izquierda') {
-        peliculaVisible = (peliculaVisible > 0) ? peliculaVisible - 1 : 0;
-    } else {
-        peliculaVisible = (peliculaVisible < totalPeliculas - 1) ? peliculaVisible + 1 : totalPeliculas - 1;
+    // Definir cuántas películas mostrar según el tamaño de la pantalla
+    if (window.innerWidth > 768 && window.innerWidth <= 1024) {
+        peliculasVisibles = 2; // Mostrar 2 películas en tablets
     }
 
-    // Oculta todas las películas y muestra solo la visible
+    // Obtener el índice de la primera película visible
+    let peliculaVisible = Array.from(peliculas).findIndex(pelicula => pelicula.style.display === 'block');
+
+    // Determina las nuevas películas visibles según la dirección
+    if (direccion === 'izquierda') {
+        peliculaVisible = (peliculaVisible > 0) ? peliculaVisible - peliculasVisibles : 0;
+    } else {
+        peliculaVisible = (peliculaVisible < totalPeliculas - peliculasVisibles) ? peliculaVisible + peliculasVisibles : totalPeliculas - peliculasVisibles;
+    }
+
+    // Ocultar todas las películas y mostrar las visibles
     peliculas.forEach((pelicula, index) => {
-        pelicula.style.display = (index === peliculaVisible) ? 'block' : 'none';
+        pelicula.style.display = (index >= peliculaVisible && index < peliculaVisible + peliculasVisibles) ? 'block' : 'none';
     });
 }
 
-// Ajustar películas al cargar y al redimensionar la ventana
+// Ajustar películas al cargar y redimensionar la ventana
 function ajustarPeliculas() {
     const secciones = document.querySelectorAll('main > section');
     secciones.forEach(seccion => {
         const peliculas = seccion.querySelectorAll('.pelicula');
-        if (window.innerWidth <= 768) {
-            peliculas.forEach((pelicula, index) => {
-                pelicula.style.display = index === 0 ? 'block' : 'none'; // Muestra solo la primera película
-            });
-        } else {
-            peliculas.forEach(pelicula => {
-                pelicula.style.display = 'block'; // Muestra todas las películas
-            });
+        let peliculasVisibles = 1; // Por defecto, mostrar una película en pantallas pequeñas
+
+        if (window.innerWidth > 768 && window.innerWidth <= 1024) {
+            peliculasVisibles = 2; // Mostrar 2 películas en pantallas de tablets
         }
+
+        // Mostrar las películas iniciales según el tamaño de la pantalla
+        peliculas.forEach((pelicula, index) => {
+            pelicula.style.display = (index < peliculasVisibles) ? 'block' : 'none';
+        });
     });
 }
 
