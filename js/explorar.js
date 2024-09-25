@@ -5,10 +5,12 @@ function filtrarPeliculas() {
     let mensajeNoEncontrado = document.getElementById('mensaje-no-encontrado');
     let hayPeliculasVisibles = false;
 
-    // Ocultar todas las películas y secciones al inicio
+    // Ocultar todas las películas al inicio
     peliculas.forEach(pelicula => {
         pelicula.parentElement.style.display = 'none'; // Oculta las películas
     });
+
+    // Ocultar todas las secciones de géneros al inicio
     secciones.forEach(seccion => {
         seccion.style.display = 'none'; // Oculta las secciones
     });
@@ -18,25 +20,44 @@ function filtrarPeliculas() {
         let seccion = pelicula.closest('section');
 
         if (titulo.includes(input)) {
-            pelicula.parentElement.style.display = ''; // Mostrar la película
+            pelicula.parentElement.style.display = ''; // Mostrar la película coincidente
             seccion.style.display = ''; // Mostrar la sección del género
-            hayPeliculasVisibles = true;
+            hayPeliculasVisibles = true; // Indicar que hay películas visibles
         }
     });
 
-    // Si no se encuentran películas, mostrar todas las secciones y películas
+    // Si no se encuentran películas coincidentes
     if (!hayPeliculasVisibles) {
-        mensajeNoEncontrado.style.display = 'block'; // Mostrar mensaje
+        mensajeNoEncontrado.style.display = 'block'; // Mostrar mensaje de "no se encontró"
+        
+        // Mostrar todas las secciones y sus películas (restaurar vista original)
         secciones.forEach(seccion => {
-            seccion.style.display = ''; // Mostrar todas las secciones si no hay coincidencias
+            seccion.style.display = ''; // Mostrar todas las secciones
+            let peliculasSeccion = seccion.querySelectorAll('.pelicula');
+            peliculasSeccion.forEach(pelicula => {
+                pelicula.style.display = ''; // Mostrar todas las películas en las secciones
+            });
         });
+        
+        // Mostrar la tabla de géneros
+        let tablaGeneros = document.querySelector('.tabla-generos');
+        if (tablaGeneros) {
+            tablaGeneros.style.display = ''; // Mostrar la tabla de géneros
+        }
     } else {
-        mensajeNoEncontrado.style.display = 'none'; // Ocultar el mensaje si hay coincidencias
+        mensajeNoEncontrado.style.display = 'none'; // Ocultar mensaje si hay coincidencias
+        // Ocultar la tabla de géneros si hay coincidencias
+        let tablaGeneros = document.querySelector('.tabla-generos');
+        if (tablaGeneros) {
+            tablaGeneros.style.display = 'none'; // Ocultar la tabla de géneros
+        }
     }
+}
 
-    // Mostrar la tabla de géneros si no se encuentran películas
-    let tablaGeneros = document.querySelector('.tabla-generos');
-    tablaGeneros.style.display = !hayPeliculasVisibles ? '' : 'none'; // Mostrar tabla si no hay películas
+function detenerEnter(event) {
+    if (event.key === "Enter") {
+        event.preventDefault(); // Evita que se ejecute el comportamiento predeterminado al presionar Enter
+    }
 }
 
 
