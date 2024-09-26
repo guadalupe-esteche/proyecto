@@ -1,49 +1,42 @@
 @media (max-width: 768px) {
-    .movie {
-        width: 100%;
-        /*las películas ocuparán todo el ancho en pantallas pequeñas*/
-    }
 
     .movie-img {
-        width: 100%;
-        /*ajusta la imagen para que ocupe todo el ancho del contenedor*/
         height: auto;
-        /*mantén la proporción de la imagen*/
         margin: 0 auto;
-        /*centra la imagen*/
     }
 
     section {
         justify-content: center;
-        flex-wrap: nowrap;
-        /* No permite que las películas se muevan a la siguiente línea */
+        flex-wrap: wrap;
+        gap: 10px;
+        overflow-x: hidden;
     }
 
-    .slider-box img {
-        width: 100%;
-        /*las imágenes ocuparán el 100% del ancho en pantallas pequeñas*/
-    }
 
     body {
         padding: 10px;
-        /*reduce el padding en pantallas pequeñas*/
+        overflow-x: hidden;
     }
 
     header,
     footer {
         font-size: 0.9rem;
-        /*reduce el tamaño de la fuente en pantallas pequeñas*/
         padding: 10px;
     }
 
+    nav {
+        display: flex;
+        justify-content: center; /* Centra los enlaces de navegación */
+        flex-wrap: wrap; /* Permite que los elementos se muevan a la siguiente línea si es necesario */
+        margin: 10px 0; /* Añade un margen superior e inferior */
+    }
+
     nav a {
-        margin: 0 10px;
-        /*ajusta el margen entre los enlaces de navegación*/
+        margin: 0 10px; /* Ajusta el margen entre los enlaces de navegación */
     }
 
     button {
         padding: 0.3rem 0.5rem;
-        /*ajusta el tamaño del botón*/
     }
 
     .respuesta {
@@ -54,23 +47,20 @@
     .pregunta h3 {
         cursor: pointer;
         color: #007bff;
-        /* Puedes personalizar el color */
     }
 
     .pregunta h3:hover {
         text-decoration: underline;
     }
 
-
     .pagina-peliculas {
         position: relative;
-        /* Para posicionar los botones de navegación */
     }
 
     .pagina-peliculas section {
         flex-wrap: wrap;
-        overflow-x: scroll;
-        gap: 0;
+        gap: 10px;
+        overflow-x: hidden;
     }
 
     .pelicula {
@@ -82,22 +72,17 @@
 @media (min-width: 769px) and (max-width: 1023px) {
     .movie {
         width: 48%;
-        /* Las películas ocuparán el 48% del ancho */
     }
 
     .movie-img {
-        width: 100%;
         height: auto;
         margin: 0 auto;
     }
 
     section {
-        justify-content: space-between;
+        justify-content: center; /* Cambiar a center para pantallas medianas */
         flex-wrap: wrap;
-    }
-
-    .slider-box img {
-        width: 100%;
+        gap: 20px;
     }
 
     body {
@@ -108,6 +93,13 @@
     footer {
         font-size: 1rem;
         padding: 15px;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center; /* Centra los enlaces de navegación */
+        flex-wrap: wrap; /* Permite que los elementos se muevan a la siguiente línea si es necesario */
+        margin: 10px 0; /* Añade un margen superior e inferior */
     }
 
     nav a {
@@ -147,7 +139,6 @@
 
     .nav-btn {
         display: block;
-        /* Muestra los botones de navegación */
     }
 
     .pagina-peliculas section {
