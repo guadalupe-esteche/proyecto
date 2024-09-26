@@ -1,4 +1,6 @@
-/* Pantallas pequeñas (max-width: 768px) - Móviles */
+* {
+    box-sizing: border-box;
+}
 @media (max-width: 768px) {
 
     .movie-img {
