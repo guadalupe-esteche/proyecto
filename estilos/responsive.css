@@ -1,3 +1,4 @@
+/* Pantallas pequeñas (max-width: 768px) - Móviles */
 @media (max-width: 768px) {
 
     .movie-img {
@@ -12,9 +13,7 @@
         overflow-x: hidden;
     }
 
-
     body {
-        padding: 10px;
         overflow-x: hidden;
     }
 
@@ -65,6 +64,34 @@
 
     .pelicula {
         text-align: center;
+    }
+
+    #preguntas-frecuentes {
+        padding: 15px;
+        margin-top: 20px;
+    }
+
+    #preguntas-frecuentes h2 {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    #preguntas-frecuentes h3 {
+        font-size: 18px;
+    }
+
+    #preguntas-frecuentes p {
+        font-size: 16px;
+    }
+
+    #preguntas-frecuentes textarea {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    #preguntas-frecuentes button[type="submit"] {
+        width: 100%;
+        font-size: 16px;
     }
 }
 
