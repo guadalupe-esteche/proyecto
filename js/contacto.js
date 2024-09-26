@@ -39,3 +39,15 @@ document.getElementById('registro-form').addEventListener('submit', function(eve
         errorMessage.style.display = 'none';
     }
 });
+
+// Mostrar un mensaje de confirmación del formulario en lugar de recargar la página
+document.addEventListener("DOMContentLoaded", function () {
+    // Selecciona el formulario
+    var form = document.querySelector("form");
+
+    // Evita que el formulario se envíe y muestra un mensaje
+    form.addEventListener("submit", function (event) {
+        event.preventDefault(); // Evita el envío del formulario
+        alert("Formulario enviado exitosamente."); // Muestra un mensaje
+    });
+});
