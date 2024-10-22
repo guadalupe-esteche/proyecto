@@ -1,53 +1,35 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const loginForm = document.getElementById('login-form');
-    const registerForm = document.getElementById('registro-form');
-
-    const showRegisterLink = document.getElementById('show-registro');
-    const showLoginLink = document.getElementById('show-login');
-
-    // Mostrar el formulario de registro y ocultar el de inicio de sesión
-    showRegisterLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        loginForm.style.display = 'none';
-        registerForm.style.display = 'block';
+// pluggin con jQuery
+$(document).ready(function() {
+    // Alternar entre formularios con deslizamiento
+    $("#show-registro").click(function(event) {
+        event.preventDefault();  // Prevenir comportamiento predeterminado del enlace
+        $("#login-form").slideUp();  // Ocultar formulario de inicio de sesión con deslizamiento
+        $("#registro-form").slideDown();  // Mostrar formulario de registro con deslizamiento
     });
 
-    // Mostrar el formulario de inicio de sesión y ocultar el de registro
-    showLoginLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        registerForm.style.display = 'none';
-        loginForm.style.display = 'block';
+    $("#show-login").click(function(event) {
+        event.preventDefault();  // Prevenir comportamiento predeterminado del enlace
+        $("#registro-form").slideUp();  // Ocultar formulario de registro con deslizamiento
+        $("#login-form").slideDown();  // Mostrar formulario de inicio de sesión con deslizamiento
     });
-});
 
-document.getElementById('registro-form').addEventListener('submit', function(event) {
-    const password = document.getElementById('password').value;
-    const errorMessage = document.getElementById('error-mensaje');
+    // Validar el formulario de registro
+    $("#registro-form").on("submit", function(event) {
+        const password = $("#password").val();
+        const regex = /^(?=.*[0-9!@#$%^&*])/;
 
-    // Expresión regular para validar al menos 1 número o carácter especial
-    const regex = /^(?=.*[0-9!@#$%^&*])/;
+        // Verificar si la contraseña tiene al menos 8 caracteres y al menos 1 número o carácter especial
+        if (password.length < 8 || !regex.test(password)) {
+            event.preventDefault();  // Evitar el envío del formulario
+            $("#error-mensaje").show();  // Mostrar mensaje de error
+        } else {
+            $("#error-mensaje").hide();  // Ocultar mensaje de error si todo está bien
+        }
+    });
 
-    // Verificar si la contraseña tiene al menos 8 caracteres y al menos 1 número o carácter especial
-    if (password.length < 8 || !regex.test(password)) {
-        // Evitar que se envíe el formulario
-        event.preventDefault();
-        
-        // Mostrar mensaje de error
-        errorMessage.style.display = 'block';
-    } else {
-        // Ocultar mensaje de error si todo está bien
-        errorMessage.style.display = 'none';
-    }
-});
-
-// Mostrar un mensaje de confirmación del formulario en lugar de recargar la página
-document.addEventListener("DOMContentLoaded", function () {
-    // Selecciona el formulario
-    var form = document.querySelector("form");
-
-    // Evita que el formulario se envíe y muestra un mensaje
-    form.addEventListener("submit", function (event) {
-        event.preventDefault(); // Evita el envío del formulario
-        alert("Formulario enviado exitosamente."); // Muestra un mensaje
+    // Mostrar un mensaje de confirmación cuando se envíe el formulario
+    $("form").on("submit", function(event) {
+        event.preventDefault();  // Evitar el envío del formulario real
+        alert("Formulario enviado exitosamente.");  // Mostrar mensaje
     });
 });
