@@ -1,3 +1,19 @@
+<?php
+// Incluir el archivo de conexión
+include 'conexion.php';
+
+// Consulta para obtener todas las películas
+$sql = "SELECT peliculas.titulo, peliculas.descripcion, generos.nombre_genero 
+        FROM peliculas 
+        JOIN generos ON peliculas.id_genero = generos.id_genero";
+
+$stmt = $conexion->prepare($sql);
+$stmt->execute();
+
+// Mostrar los resultados
+$peliculas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 

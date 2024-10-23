@@ -37,7 +37,7 @@
             <!-- Formulario de Inicio de Sesión -->
             <div id="login-form">
                 <h3>Iniciar Sesión</h3>
-                <form method="post" action="#">
+                <form method="post" action="login.php">
                     <label for="login_email">Correo Electrónico:</label>
                     <input type="email" id="login_email" name="login_email" required placeholder="E-mail">
 
@@ -52,14 +52,14 @@
             <!-- Formulario de Registro -->
             <div id="registro-form" style="display: none;">
                 <h3>Regístrate</h3>
-                <form method="post" action="#">
+                <form method="post" action="registro.php">
                     <label for="nombre">Nombre:</label>
                     <input type="text" id="nombre" name="nombre" required placeholder="Nombre">
 
                     <label for="email">Correo Electrónico:</label>
                     <input type="email" id="email" name="email" required placeholder="E-mail">
 
-                    <label for="password">Contraseña:</label>
+                    <label for="contraseña">Contraseña:</label>
                     <input type="password" id="password" name="password" required placeholder="Contraseña">
 
                     <button type="submit">Registrarse</button>

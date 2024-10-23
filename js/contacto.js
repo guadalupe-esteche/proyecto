@@ -1,4 +1,3 @@
-// pluggin con jQuery
 $(document).ready(function() {
     // Alternar entre formularios con deslizamiento
     $("#show-registro").click(function(event) {
@@ -20,16 +19,11 @@ $(document).ready(function() {
 
         // Verificar si la contraseña tiene al menos 8 caracteres y al menos 1 número o carácter especial
         if (password.length < 8 || !regex.test(password)) {
-            event.preventDefault();  // Evitar el envío del formulario
+            event.preventDefault();  // Evitar el envío del formulario si no es válido
             $("#error-mensaje").show();  // Mostrar mensaje de error
         } else {
             $("#error-mensaje").hide();  // Ocultar mensaje de error si todo está bien
+            // No llamar a event.preventDefault() aquí, para permitir el envío del formulario
         }
-    });
-
-    // Mostrar un mensaje de confirmación cuando se envíe el formulario
-    $("form").on("submit", function(event) {
-        event.preventDefault();  // Evitar el envío del formulario real
-        alert("Formulario enviado exitosamente.");  // Mostrar mensaje
     });
 });
