@@ -1,24 +1,45 @@
 <?php
+session_start();  // Iniciar la sesión
 include 'conexion.php';
-conectar();
+$conexion = conectar();  // Asignar la conexión retornada por la función conectar()
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $correo = $_POST['login_email'];
     $contraseña = $_POST['login_password'];
 
-    // Buscar el usuario por correo
-    $sql = "SELECT * FROM usuarios WHERE correo = :correo";
-    $stmt = $conexion->prepare($sql);
-    $stmt->bindParam(':correo', $correo);
-    $stmt->execute();
+    // Asegurarse de que la conexión fue exitosa antes de continuar
+    if ($conexion) {
+        // Buscar el usuario por correo (con sintaxis MySQLi)
+        $sql = "SELECT * FROM usuarios WHERE correo = ?";
+        $stmt = $conexion->prepare($sql);  // Preparar la consulta
+        
+        // Verificar que se haya preparado correctamente
+        if ($stmt) {
+            $stmt->bind_param('s', $correo);  // 's' indica que el parámetro es de tipo string
+            $stmt->execute();  // Ejecutar la consulta
+            $resultado = $stmt->get_result();  // Obtener el resultado
 
-    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+            $usuario = $resultado->fetch_assoc();  // Obtener el registro como un array asociativo
 
-    // Verificar la contraseña
-    if ($usuario && password_verify($contraseña, $usuario['contraseña'])) {
-        echo "Inicio de sesión exitoso. Bienvenido, " . htmlspecialchars($usuario['nombre']) . "!";
+            // Verificar la contraseña
+            if ($usuario && password_verify($contraseña, $usuario['contraseña'])) {
+                // Guardar el nombre del usuario en la sesión
+                $_SESSION['nombre'] = $usuario['nombre'];
+
+                // Mostrar un alert de inicio de sesión exitoso
+                echo "<script>alert('Inicio de sesión exitoso.');</script>";
+
+                // Redirigir a la página de bienvenida después de mostrar el alert
+                echo "<script>window.location.href = '../index.php';</script>";
+                exit();
+            } else {
+                echo "<script>alert('Correo o contraseña incorrectos.');</script>";
+            }
+        } else {
+            echo "Error en la preparación de la consulta: " . $conexion->error;
+        }
     } else {
-        echo "Correo o contraseña incorrectos.";
+        echo "Error en la conexión a la base de datos.";
     }
 }
 ?>

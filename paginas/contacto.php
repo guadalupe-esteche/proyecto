@@ -1,3 +1,49 @@
+<?php
+// Verificar si el formulario ha sido enviado
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Conexión a la base de datos (incluye tu archivo conexion.php)
+    include 'conexion.php';
+
+    // Obtener datos del formulario
+    $email = $_POST['email'];
+    $nombre = $_POST['nombre'];
+    $password = $_POST['password'];
+
+    // Comprobar si el email ya existe en la base de datos
+    $stmt = $conexion->prepare("SELECT * FROM usuarios WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    // Si el resultado contiene alguna fila, el usuario ya está registrado
+    if ($result->num_rows > 0) {
+        // Cerrar la declaración y la conexión
+        $stmt->close();
+        $conexion->close();
+
+        // Redirigir al formulario de login
+        header("Location: login.php?error=usuario_existe");
+        exit();  // Asegurarse de detener la ejecución del script
+    } else {
+        // Si el usuario no está registrado, proceder a registrarlo
+        $stmt = $conexion->prepare("INSERT INTO usuarios (nombre, email, password) VALUES (?, ?, ?)");
+        $stmt->bind_param("sss", $nombre, $email, password_hash($password, PASSWORD_DEFAULT));
+
+        // Ejecutar la consulta y verificar si fue exitosa
+        if ($stmt->execute()) {
+            echo "Usuario registrado exitosamente.";
+        } else {
+            echo "Error al registrar el usuario: " . $stmt->error;
+        }
+
+        // Cerrar la declaración y la conexión
+        $stmt->close();
+        $conexion->close();
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 

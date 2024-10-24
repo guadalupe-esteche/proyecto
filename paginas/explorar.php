@@ -1,19 +1,43 @@
 <?php
 // Incluir el archivo de conexión
-include 'conexion.php';
+include 'conexion.php';  // Ajustar la ruta según sea necesario si el archivo está en la carpeta 'paginas'
 
-// Consulta para obtener todas las películas
-$sql = "SELECT peliculas.titulo, peliculas.descripcion, generos.nombre_genero 
-        FROM peliculas 
-        JOIN generos ON peliculas.id_genero = generos.id_genero";
+// Conectar a la base de datos
+$conexion = conectar();  // Llamar a la función para obtener la conexión
 
-$stmt = $conexion->prepare($sql);
-$stmt->execute();
+// Verificar si la conexión fue exitosa
+if ($conexion) {
+    // Consulta para obtener todas las películas
+    $sql = "SELECT peliculas.titulo, peliculas.descripcion, generos.nombre_genero 
+            FROM peliculas 
+            JOIN generos ON peliculas.id_genero = generos.id_genero";
 
-// Mostrar los resultados
-$peliculas = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+    $stmt = $conexion->prepare($sql);
+    
+    // Verificar si la consulta fue preparada correctamente
+    if ($stmt) {
+        $stmt->execute();
+    
+        // Mostrar los resultados
+        $peliculas = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    
+        // Aquí puedes iterar sobre $peliculas y mostrar los datos como desees
+        foreach ($peliculas as $pelicula) {
+            echo "<h2>" . htmlspecialchars($pelicula['titulo']) . "</h2>";
+            echo "<p>" . htmlspecialchars($pelicula['descripcion']) . "</p>";
+            echo "<p>Género: " . htmlspecialchars($pelicula['nombre_genero']) . "</p>";
+        }
+    } else {
+        echo "Error al preparar la consulta: " . $conexion->error;
+    }
+    
+    // Cerrar la conexión
+    desconectar($conexion);
+} else {
+    echo "Error al conectar a la base de datos.";
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 

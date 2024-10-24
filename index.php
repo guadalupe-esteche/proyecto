@@ -1,3 +1,15 @@
+<?php
+session_start();  // Iniciar la sesión
+
+// Verificar si el usuario ha iniciado sesión
+if (isset($_SESSION['nombre'])) {
+    $nombreUsuario = htmlspecialchars($_SESSION['nombre']);
+} else {
+    // Si no hay sesión, redirigir al formulario de inicio de sesión
+    header("Location: login.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -17,6 +29,7 @@
     <header class="header-index">
         <div class="header-contenido">
             <h1>Luz, Cámara, Blog</h1>
+            <h1>Bienvenido, <?php echo $nombreUsuario; ?>!</h1>
             <p>Explora y descubre las mejores recomendaciones de películas
                 en todos los géneros</p>
         </div>
@@ -28,7 +41,7 @@
                 <a href="index.html">Inicio</a>
             </li>
             <li>
-                <a href="paginas/explorar.html">Explorar</a>
+                <a href="paginas/explorar.php">Explorar</a>
             </li>
             <li>
                 <a href="paginas/contacto.php">Contacto</a>
