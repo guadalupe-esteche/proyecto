@@ -65,13 +65,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <nav>
         <ul class="menu-horizontal">
             <li>
-                <a href="../index.html">Inicio</a>
+                <a href="../index.php">Inicio</a>
             </li>
             <li>
-                <a href="explorar.html">Explorar</a>
+                <a href="explorar.php">Explorar</a>
             </li>
             <li>
-                <a href="contacto.html">Contacto</a>
+                <a href="contacto.php">Contacto</a>
             </li>
         </ul>
     </nav>

@@ -94,7 +94,7 @@ include 'conexion.php';
 
         $conexion = conectar();
         if ($conexion) {
-        // Consulta para obtener los géneros
+            // Consulta para obtener los géneros
             $sql_generos = "SELECT id_genero, nombre_genero FROM generos";
             $stmt_generos = $conexion->prepare($sql_generos);
             $stmt_generos->execute();
@@ -107,7 +107,7 @@ include 'conexion.php';
                 echo "<button class='nav-btn izq' onclick=\"deslizarSeccion('izquierda', '" . strtolower(htmlspecialchars($genero['nombre_genero'])) . "')\">&lt;</button>";
 
                 // Consulta para obtener las películas de este género
-                $sql_peliculas = "SELECT titulo, descripcion, imagen FROM peliculas WHERE id_genero = ?";
+                $sql_peliculas = "SELECT id_pelicula, titulo, descripcion, imagen FROM peliculas WHERE id_genero = ?";
                 $stmt_peliculas = $conexion->prepare($sql_peliculas);
                 $stmt_peliculas->bind_param('i', $genero['id_genero']);
                 $stmt_peliculas->execute();
@@ -116,8 +116,8 @@ include 'conexion.php';
                 // Mostrar películas
                 foreach ($peliculas as $pelicula) {
                     echo "<div class='pelicula'>";
-                    echo "<h3>" . htmlspecialchars($pelicula['titulo']) . "</h3>";
-                    echo "<img src='../imagenes/" . htmlspecialchars($pelicula['imagen']) . "' alt='" . htmlspecialchars($pelicula['titulo']) . "' class='pelicula-img'>";
+                    echo "<h3><a href='detalles.php?id_pelicula=" . htmlspecialchars($pelicula['id_pelicula']) . "'>" . htmlspecialchars($pelicula['titulo']) . "</a></h3>";
+                    echo "<a href='detalles.php?id_pelicula=" . htmlspecialchars($pelicula['id_pelicula']) . "'><img src='../imagenes/" . htmlspecialchars($pelicula['imagen']) . "' alt='" . htmlspecialchars($pelicula['titulo']) . "' class='pelicula-img'></a>";
                     echo "</div>";
                 }
 
