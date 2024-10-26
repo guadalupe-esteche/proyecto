@@ -1,15 +1,17 @@
 <?php
-session_start();  // Iniciar la sesión
+session_start();  // Inicia la sesión
 
 // Verificar si el usuario ha iniciado sesión
 if (isset($_SESSION['nombre'])) {
     $nombreUsuario = htmlspecialchars($_SESSION['nombre']);
+    $usuarioLogueado = true;
 } else {
-    // Si no hay sesión, redirigir al formulario de inicio de sesión
-    header("Location: login.php");
-    exit();
+    // Valor por defecto cuando no hay sesión iniciada
+    $nombreUsuario = "Invitado";
+    $usuarioLogueado = false;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -29,16 +31,15 @@ if (isset($_SESSION['nombre'])) {
     <header class="header-index">
         <div class="header-contenido">
             <h1>Luz, Cámara, Blog</h1>
-            <h1>Bienvenido, <?php echo $nombreUsuario; ?>!</h1>
-            <p>Explora y descubre las mejores recomendaciones de películas
-                en todos los géneros</p>
+            <h2>Bienvenido, <?php echo $nombreUsuario; ?>!</h2>
+            <p>Explora y descubre las mejores recomendaciones de películas en todos los géneros</p>
         </div>
     </header>
 
     <nav>
         <ul class="menu-horizontal">
             <li>
-                <a href="index.html">Inicio</a>
+                <a href="index.php">Inicio</a>
             </li>
             <li>
                 <a href="paginas/explorar.php">Explorar</a>
@@ -51,28 +52,16 @@ if (isset($_SESSION['nombre'])) {
     <main>
         <section id="portada">
             <h2>Bienvenido a Luz, Cámara, Blog</h2>
-            <h3>Un blog en donde podrás explorar diferentes géneros de
-                películas y descubrir las
-                mejores recomendaciones</h3>
+            <h3>Un blog en donde podrás explorar diferentes géneros de películas y descubrir las mejores recomendaciones</h3>
         </section>
 
         <div class="carrusel">
             <ul>
-                <li>
-                    <img src="imagenes/drstrange.jpg" alt="Dr. Strange">
-                </li>
-                <li>
-                    <img src="imagenes/forrest.jpg" alt="Forrest Gump">
-                </li>
-                <li>
-                    <img src="imagenes/misionimposible.jpg" alt="Mision imposible">
-                </li>
-                <li>
-                    <img src="imagenes/marley.jpg" alt="Marley y yo">
-                </li>
-                <li>
-                    <img src="imagenes/it.jpg" alt="It">
-                </li>
+                <li><img src="imagenes/drstrange.jpg" alt="Dr. Strange"></li>
+                <li><img src="imagenes/forrest.jpg" alt="Forrest Gump"></li>
+                <li><img src="imagenes/misionimposible.jpg" alt="Misión Imposible"></li>
+                <li><img src="imagenes/marley.jpg" alt="Marley y Yo"></li>
+                <li><img src="imagenes/it.jpg" alt="It"></li>
             </ul>
         </div>
 
@@ -80,17 +69,22 @@ if (isset($_SESSION['nombre'])) {
             <h2>Preguntas Frecuentes</h2>
             <div class="pregunta">
                 <h3 class="toggle">¿Cómo me registro en el blog?</h3>
-                <p class="respuesta">Para registrarte, ve a la sección de contacto y llena el <a href="paginas/contacto.html">formulario de registro</a></p>
+                <p class="respuesta">Para registrarte, ve a la sección de contacto y llena el <a href="paginas/contacto.php">formulario de registro</a></p>
             </div>
             <div class="pregunta">
                 <h3 class="toggle">¿Cómo puedo sugerir una película?</h3>
                 <p class="respuesta">Puedes sugerir películas en la siguiente sección</p>
             </div>
-            <form method="post">
+
+            <form method="post" action="sugerir_pelicula.php">
                 Sugerir películas:<br>
                 <textarea name="comentarios" rows="3" cols="60" required placeholder="Sugiere una película..."></textarea>
                 <br>
-                <button type="submit">Enviar</button>
+                <?php if ($usuarioLogueado): ?>
+                    <button type="submit">Enviar</button>
+                <?php else: ?>
+                    <p>Para sugerir una película, <a href="paginas/contacto.php">regístrate o inicia sesión</a>.</p>
+                <?php endif; ?>
             </form>
         </section>
         
@@ -99,5 +93,4 @@ if (isset($_SESSION['nombre'])) {
         <p>&copy; 2024 Luz, Cámara, Blog</p>
     </footer>
 </body>
-
 </html>

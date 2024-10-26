@@ -66,6 +66,8 @@ header {
 }
 
 .header-index h1,
+.header-index h2,
+.header-contenido h2,
 .header-explorar h1,
 .header-contacto h1 {
     font-family: "DM Serif Text", serif;
