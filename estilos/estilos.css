@@ -3,8 +3,6 @@ body {
     font-family: "DM Serif Text", serif;
     display: flex;
     /*contenedor flexible*/
-    font-family: Arial, sans-serif;
-    /*fuente*/
     flex-direction: column;
     /*los elementos se organizarán en columna*/
     max-height: 100vh;
@@ -66,13 +64,15 @@ header {
 }
 
 .header-index h1,
-.header-index h2,
-.header-contenido h2,
 .header-explorar h1,
 .header-contacto h1 {
     font-family: "DM Serif Text", serif;
     font-size: 3rem;
     margin-bottom: 10px;
+}
+
+.header-contenido h2{
+    font-family: "DM Serif Text", serif;
 }
 
 .header-index p {
@@ -175,10 +175,6 @@ nav a:hover::after {
     background-color: #9f352e;
 }
 
-/* Títulos h2*/
-h2 {
-    color: #333;
-}
 
 section {
     padding: 20px;
@@ -367,7 +363,7 @@ section {
     text-decoration: underline;
 }
 
-
+&
 .pagina-peliculas section {
     display: flex;
     /*ordena los elementos en una misma fila*/
