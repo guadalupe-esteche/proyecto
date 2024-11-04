@@ -1,6 +1,6 @@
 <?php
 session_start();  // Iniciar la sesión
-include 'conexion.php';
+include '../conexion/conexion.php';
 $conexion = conectar();  // Asignar la conexión retornada por la función conectar()
 
 

@@ -1,6 +1,5 @@
 <?php
-include 'conexion.php';
-// Conectar a la base de datos
+include '../conexion/conexion.php'; // Conectar a la base de datos
 ?>
 <!DOCTYPE html>
 <html lang="es">
