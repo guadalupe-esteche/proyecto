@@ -3,6 +3,14 @@ session_start();  // Iniciar la sesión
 include 'conexion.php';
 $conexion = conectar();  // Asignar la conexión retornada por la función conectar()
 
+
+//cerrar sesion
+if(isset($_GET['salir']))
+{
+    session_destroy();
+    echo "<script>window.location='../index.php';</script>";
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $correo = $_POST['login_email'];
     $contraseña = $_POST['login_password'];

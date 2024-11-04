@@ -103,7 +103,8 @@ include 'conexion.php';
             // Iterar sobre cada género y mostrar sus películas
             foreach ($generos as $genero) {
                 echo "<h2>Películas de " . htmlspecialchars($genero['nombre_genero']) . "</h2>";
-                echo "<section id='" . strtolower(htmlspecialchars($genero['nombre_genero'])) . "'>";
+                $id_genero = str_replace(' ', '', strtolower(htmlspecialchars($genero['nombre_genero'])));
+                echo "<section id='" . $id_genero . "'>";
                 echo "<button class='nav-btn izq' onclick=\"deslizarSeccion('izquierda', '" . strtolower(htmlspecialchars($genero['nombre_genero'])) . "')\">&lt;</button>";
 
                 // Consulta para obtener las películas de este género

@@ -34,6 +34,13 @@ if (isset($_SESSION['nombre'])) {
             <h2>Bienvenido, <?php echo $nombreUsuario; ?>!</h2>
             <p>Explora y descubre las mejores recomendaciones de películas en todos los géneros</p>
         </div>
+        <?php
+            if (!empty($_SESSION['nombre'])) {
+                ?>
+                 <a href="paginas/login.php?salir=ok">SALIR</a>
+                <?php
+            }
+        ?>
     </header>
 
     <nav>

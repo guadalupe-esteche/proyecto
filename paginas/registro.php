@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Mostrar el mensaje de éxito y redirigir
                 echo "<script>
                         alert('Usuario registrado exitosamente.');
-                        window.location.href = 'login.php';
+                        window.location.href = 'contacto.php';
                       </script>";
             } else {
                 echo "<script>alert('Error al registrar el usuario: " . $stmt->error . "');</script>";
