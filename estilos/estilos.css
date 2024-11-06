@@ -387,6 +387,7 @@ section {
     margin-right: 20px;
     border: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 60%;
 }
 
 #mensaje-no-encontrado {
@@ -510,8 +511,13 @@ table.tabla-generos {
     /*sombra debajo del contenedor*/
 }
 
+.pelicula-ficha {
+    width: 40%;
+}
+
 /* Imagenes del contenedor movie */
 .pelicula-img {
+
     display: block;
     margin: 0 auto;
     margin-bottom: 20px;

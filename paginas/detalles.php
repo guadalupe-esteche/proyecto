@@ -51,7 +51,7 @@ $conexion = conectar();
         
                 if ($pelicula) {
                     // Mostrar los detalles de la película
-                    echo "<img src='" . htmlspecialchars($pelicula['imagen']) . "' class='pelicula' alt='" . htmlspecialchars($pelicula['titulo']) . "'>";
+                    echo "<img src='" . htmlspecialchars($pelicula['imagen']) . "' class='pelicula-ficha' alt='" . htmlspecialchars($pelicula['titulo']) . "'>";
                     echo "<h2>" . htmlspecialchars($pelicula['titulo']) . "</h2>";
                     echo "<p><strong>Descripción:</strong> " . htmlspecialchars($pelicula['descripcion']) . "<br>";
                     echo "<strong>Año:</strong> " . htmlspecialchars($pelicula['anio']) . "<br>";
