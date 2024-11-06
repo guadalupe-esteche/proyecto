@@ -55,6 +55,25 @@ header {
     justify-content: center;
     text-align: center;
     color: #fff;
+    position: relative; 
+}
+
+.header-index a {
+    position: absolute;
+    top: 20px; 
+    right: 20px; 
+    background-color:#140f07; 
+    color:#9e0517; 
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none; 
+    font-weight: bold;
+    font-family: 'DM Serif Text', serif;
+    transition: background-color 0.3s;
+}
+
+.header-index a:hover {
+    background-color: #FF3B3F; 
 }
 
 .header-contenido {
