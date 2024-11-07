@@ -58,29 +58,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <header class="header-contacto">
-        <h1>Contacto</h1>
-    </header>
+    
 
-    <nav>
-        <ul class="menu-horizontal">
-            <li>
-                <a href="../index.php">Inicio</a>
-            </li>
-            <li>
-                <a href="explorar.php">Explorar</a>
-            </li>
-            <li>
-                <a href="contacto.php">Contacto</a>
-            </li>
-        </ul>
-    </nav>
+<nav>
+    <div class="nav-left">
+        <a href="../index.php">Luz, cámara, blog</a>
+    </div>
+    <div class="nav-right">
+        <a href="explorar.php">Explorar</a>
+        <a href="contacto.php">Contacto</a>
+    </div>
+</nav>
 
-    <main>
-        <section id="formulario">
-            <h2>Regístrate o Inicia Sesión</h2>
-
-            <!-- Formulario de Inicio de Sesión -->
+    
+<main class="contenedor-principal">
+    <!-- Formulario en la izquierda -->
+    <section id="formulario">
+        <h2>Regístrate o Inicia Sesión</h2>
+        <div class="contenido-formulario">
+            <!-- Formulario de Inicio de Sesión y Registro -->
             <div id="login-form">
                 <h3>Iniciar Sesión</h3>
                 <form method="post" action="login.php">
@@ -94,8 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <p>¿No tienes cuenta? <a href="#" id="show-registro">Regístrate aquí</a></p>
                 </form>
             </div>
-
-            <!-- Formulario de Registro -->
+            
             <div id="registro-form" style="display: none;">
                 <h3>Regístrate</h3>
                 <form method="post" action="registro.php">
@@ -114,8 +109,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     al menos un número o un carácter especial /^(?=.*[0-9!@#$%^&*])/</p>
                 <p>¿Ya tienes cuenta? <a href="#" id="show-login">Inicia Sesión aquí</a></p>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <!-- Imagen en la derecha -->
+    <div class="imagen-lateral">
+        <img src="../imagenes/fondo1.jpg" alt="Imagen Lateral">
+    </div>
+</main>
+    
+ 
 
     <footer>
         <p>&copy; 2024 Mi Blog de Películas</p>

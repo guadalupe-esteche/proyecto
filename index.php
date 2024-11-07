@@ -28,6 +28,18 @@ if (isset($_SESSION['nombre'])) {
 </head>
 
 <body>
+
+    <nav class="nav-index">
+        <div class="nav-container"> 
+            <div class="nav-left">
+                <a href="index.php">Luz, Cámara, Blog</a>
+            </div>
+            <div class="nav-right">
+                <a href="paginas/explorar.php">Explorar</a>
+                <a href="paginas/contacto.php">Contacto</a>
+            </div>
+        </div>
+    </nav>
     <header class="header-index">
         <div class="header-contenido">
             <h1>Luz, Cámara, Blog</h1>
@@ -43,19 +55,6 @@ if (isset($_SESSION['nombre'])) {
         ?>
     </header>
 
-    <nav>
-        <ul class="menu-horizontal">
-            <li>
-                <a href="index.php">Inicio</a>
-            </li>
-            <li>
-                <a href="paginas/explorar.php">Explorar</a>
-            </li>
-            <li>
-                <a href="paginas/contacto.php">Contacto</a>
-            </li>
-        </ul>
-    </nav>
     <main>
         <section id="portada">
             <h2>Bienvenido a Luz, Cámara, Blog</h2>
