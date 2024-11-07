@@ -14,16 +14,18 @@ include '../conexion/conexion.php'; // Conectar a la base de datos
 </head>
 
 <body>
-    <nav class="nav-explorar">
-        <div class="nav-container"> 
-            <div class="nav-left">
-                <a href="../index.php">Luz, Cámara, Blog</a>
-            </div>
-            <div class="nav-right">
+    <nav>
+        <ul class="menu-horizontal">
+            <li>
+                <a href="../index.php">Inicio</a>
+            </li>
+            <li>
                 <a href="explorar.php">Explorar</a>
+            </li>
+            <li>
                 <a href="contacto.php">Contacto</a>
-            </div>
-        </div>
+            </li>
+        </ul>
     </nav>
     
     <div class="contenedor-explorar">

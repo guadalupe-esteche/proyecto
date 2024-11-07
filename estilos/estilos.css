@@ -821,7 +821,7 @@ footer p {
 }
 
 /* Estilos para el contenedor general */
-.contenedor {
+.contenedor-explorar {
     display: flex;
 }
 
@@ -870,3 +870,4 @@ footer p {
         border-bottom: 1px solid #ddd;
     }
 }
+
