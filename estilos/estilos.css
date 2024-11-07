@@ -819,3 +819,54 @@ footer {
 footer p {
     margin: 0;
 }
+
+/* Estilos para el contenedor general */
+.contenedor {
+    display: flex;
+}
+
+/* Estilos para el menú lateral */
+.menu-lateral {
+    width: 250px; /* Ajusta el ancho según tus preferencias */
+    background-color: #f4f4f4;
+    padding: 15px;
+    border-right: 1px solid #ddd;
+}
+
+/* Estilos para la tabla en el menú lateral */
+.tabla-generos {
+    width: 100%;
+}
+
+.tabla-generos td a {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+    text-decoration: none;
+    color: #333;
+}
+
+.tabla-generos img {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+/* Estilos para el contenido principal */
+.pagina-peliculas {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* Ajustes adicionales para pantallas pequeñas */
+@media (max-width: 768px) {
+    .contenedor {
+        flex-direction: column;
+    }
+    .menu-lateral {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+}
