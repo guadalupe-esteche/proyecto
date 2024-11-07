@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     
 
-<nav>
+<nav class="nav-contacto">
     <div class="nav-left">
         <a href="../index.php">Luz, cámara, blog</a>
     </div>
@@ -72,7 +72,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     
 <main class="contenedor-principal">
-    <!-- Formulario en la izquierda -->
     <section id="formulario">
         <h2>Regístrate o Inicia Sesión</h2>
         <div class="contenido-formulario">
@@ -117,8 +116,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <img src="../imagenes/fondo1.jpg" alt="Imagen Lateral">
     </div>
 </main>
-    
- 
 
     <footer>
         <p>&copy; 2024 Mi Blog de Películas</p>
