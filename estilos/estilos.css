@@ -61,7 +61,7 @@ header {
 
 /* Estilos para el nav */
 .nav-index {
-    position: absolute;
+   
     top: 0;
     left: 0;
     width: 100%; /* Abarca todo el ancho de la pantalla */
@@ -231,7 +231,8 @@ nav a:hover::after {
 }
 
 .menu-horizontal a:hover {
-    border-bottom: 2px solid #ff6347;
+    background-color: #ff6347; /* Color de fondo al pasar el cursor */
+    transform: scale(1.05);
 }
 
 .menu-horizontal>li:hover {
@@ -450,7 +451,13 @@ section {
     flex: 0 0 auto;
     margin-right: 20px;
     border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra más notable */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.pelicula:hover {
+    transform: translateY(-5px); /* Eleva ligeramente el contenedor al pasar el cursor */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
 }
 
 
@@ -828,9 +835,12 @@ footer p {
 /* Estilos para el menú lateral */
 .menu-lateral {
     width: 250px; /* Ajusta el ancho según tus preferencias */
-    background-color: #7d2429;
+    background-color: #5d1f22;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2); /* Sombra */
     padding: 15px;
     border-right: 1px solid #ddd;
+    position: fixed;
+    height: 100vh;
 }
 
 /* Estilos para la tabla en el menú lateral */
@@ -871,3 +881,57 @@ footer p {
     }
 }
 
+/* Estilos para el nav */
+.nav-explorar {
+    top: 0;
+    left: 0;
+    width: 100%; /* Abarca todo el ancho de la pantalla */
+    padding: 10px 0; /* Espacio vertical */
+    background-color: #7d2429;
+    z-index: 10; /* Asegura que esté por encima del fondo */
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; /* Ancho máximo para centrar */
+    margin: 0 auto; /* Centrado horizontal */
+    padding: 0 20px; /* Espacio a los lados dentro del contenedor */
+    width: 100%; /* Abarca todo el ancho disponible en .nav-index */
+}
+
+/* Estilos para los enlaces del nav */
+.nav-left a, .nav-right a {
+    color: white;
+    text-decoration: none;
+    font-family: 'DM Serif Text', serif;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.nav-right a {
+    margin-left: 15px;
+}
+
+/* Efecto hover para subrayado animado */
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #e0c2ff; /* Color bordo para el subrayado */
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+nav a:hover::after {
+    transform: scaleX(1);
+}
+
+.contenido-pelicula {
+    margin-left: 250px; /* Ajusta el espacio del ancho del menú */
+    padding: 15px;
+}

@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     
 
-<nav class="nav-contacto">
+<nav class="nav-index">
     <div class="nav-left">
         <a href="../index.php">Luz, cámara, blog</a>
     </div>
