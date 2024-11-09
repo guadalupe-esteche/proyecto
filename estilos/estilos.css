@@ -828,20 +828,41 @@ footer p {
     margin: 0;
 }
 
-/* Estilos para el contenedor general */
-.contenedor-explorar {
-    display: flex;
+/* Botón de menú hamburguesa */
+.menu-hamburguesa {
+    display: block;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 20;
 }
 
-/* Estilos para el menú lateral */
+/* Menú lateral */
 .menu-lateral {
-    width: 250px; /* Ajusta el ancho según tus preferencias */
+    width: 250px;
     background-color: #5d1f22;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2); /* Sombra */
-    padding: 15px;
-    border-right: 1px solid #ddd;
     position: fixed;
+    top: 0;
+    left: 0;
     height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.menu-lateral.abierto {
+    transform: translateX(0);
+}
+
+/* Contenido principal */
+.contenido-pelicula {
+    transition: margin-left 0.3s ease;
+}
+
+/* Cuando el menú está abierto */
+.contenido-pelicula.menu-abierto {
+    margin-left: 250px;
 }
 
 /* Estilos para la tabla en el menú lateral */
@@ -870,17 +891,6 @@ footer p {
     overflow-y: auto;
 }
 
-/* Ajustes adicionales para pantallas pequeñas */
-@media (max-width: 768px) {
-    .contenedor {
-        flex-direction: column;
-    }
-    .menu-lateral {
-        width: 100%;
-        border-right: none;
-        border-bottom: 1px solid #ddd;
-    }
-}
 
 /* Estilos para el nav */
 .nav-explorar {

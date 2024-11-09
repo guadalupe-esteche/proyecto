@@ -96,6 +96,13 @@ function deslizarSeccion(direccion, seccionId) {
     });
 }
 
+function toggleMenu() {
+    const menu = document.getElementById("menuLateral");
+    const contenido = document.getElementById("contenidoPelicula");
+    menu.classList.toggle("abierto");
+    contenido.classList.toggle("menu-abierto");
+}
+
 // Ajustar películas al cargar y redimensionar la ventana
 function ajustarPeliculas() {
     const secciones = document.querySelectorAll('main > section');

@@ -25,49 +25,24 @@ include '../conexion/conexion.php'; // Conectar a la base de datos
             </div>
         </div>
     </nav>
+    <div class="menu-hamburguesa" onclick="toggleMenu()">
+        ☰
+    </div>
     
     <div class="contenedor-explorar">
-        <aside class="menu-lateral">
-        <table class="tabla-generos">
-                <thead>
-                    <tr>
-                        <th>Género</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><a href="#accion">Acción</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><a href="#drama">Drama</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><a href="#comedia">Comedia</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><a href="#cienciaficcion">Ciencia Ficción</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><a href="#terror">Terror</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><a href="#romance">Romance</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><a href="#basadasenlibros">Basadas en libros</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </aside>
-        <main class="pagina-peliculas">
+        <nav class="menu-lateral">
+            <ul class="tabla-generos">
+                <li><a href="#accion">Acción</a></li>
+                <li><a href="#drama">Drama</li>
+                <li><a href="#comedia">Comedia</a></li>
+                <li><a href="#cienciaficcion">Ciencia Ficción</a></li>
+                <li><a href="#terror">Terror</a></li>
+                <li><a href="#romance">Romance</a></li>
+                <li><a href="#basadasenlibros">Basadas en libros</a></li>
+            </ul>
+        </nav>
 
+        <main class="pagina-peliculas">
             <div class="contenido-pelicula">
                 <h1>¿Qué sección deseas explorar?</h1>
                 <input type="text" id="buscar" placeholder="Buscar películas..." onkeyup="filtrarPeliculas()"
