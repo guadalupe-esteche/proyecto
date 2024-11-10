@@ -30,7 +30,7 @@ include '../conexion/conexion.php'; // Conectar a la base de datos
     </div>
     
     <div class="contenedor-explorar">
-        <nav class="menu-lateral">
+        <nav id="menuLateral" class="menu-lateral">
             <ul class="tabla-generos">
                 <li><a href="#accion">Acción</a></li>
                 <li><a href="#drama">Drama</li>
@@ -43,7 +43,7 @@ include '../conexion/conexion.php'; // Conectar a la base de datos
         </nav>
 
         <main class="pagina-peliculas">
-            <div class="contenido-pelicula">
+            <div id="contenidoPelicula" class="contenido-pelicula">
                 <h1>¿Qué sección deseas explorar?</h1>
                 <input type="text" id="buscar" placeholder="Buscar películas..." onkeyup="filtrarPeliculas()"
                     onkeydown="detenerEnter(event)">
