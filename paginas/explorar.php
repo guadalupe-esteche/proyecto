@@ -43,7 +43,7 @@ include '../conexion/conexion.php'; // Conectar a la base de datos
         </nav>
 
         <main class="pagina-peliculas">
-            <div id="contenidoPelicula" class="contenido-pelicula">
+            <div id="contenidoPelicula" class="contenido-pelicula centrado">
                 <h1>¿Qué sección deseas explorar?</h1>
                 <input type="text" id="buscar" placeholder="Buscar películas..." onkeyup="filtrarPeliculas()"
                     onkeydown="detenerEnter(event)">

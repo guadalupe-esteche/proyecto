@@ -99,9 +99,20 @@ function deslizarSeccion(direccion, seccionId) {
 function toggleMenu() {
     const menu = document.getElementById("menuLateral");
     const contenido = document.getElementById("contenidoPelicula");
+    
+    // Alterna la clase para abrir o cerrar el menú
     menu.classList.toggle("abierto");
-    contenido.classList.toggle("menu-abierto");
+
+    // Si el menú está abierto, quita la clase centrado; si está cerrado, agrégala
+    if (menu.classList.contains("abierto")) {
+        contenido.classList.remove("centrado");
+        contenido.classList.add("menu-abierto");
+    } else {
+        contenido.classList.remove("menu-abierto");
+        contenido.classList.add("centrado");
+    }
 }
+
 
 // Ajustar películas al cargar y redimensionar la ventana
 function ajustarPeliculas() {

@@ -858,11 +858,20 @@ footer p {
 /* Contenido principal */
 .contenido-pelicula {
     transition: margin-left 0.3s ease;
+    margin-left: 250px; /* Ajusta el espacio del ancho del menú */
+    padding: 15px;
 }
 
-/* Cuando el menú está abierto */
+.contenido-pelicula.centrado {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%; /* Ajusta según el ancho que desees */
+    transition: margin 0.3s ease;
+}
+
+/* Cuando el menú está abierto, aplica el margen izquierdo para dar espacio al menú */
 .contenido-pelicula.menu-abierto {
-    margin-left: 250px;
+    margin-left: 250px; /* Ajusta el margen según el ancho del menú */
 }
 
 /* Estilos para la tabla en el menú lateral */
@@ -942,7 +951,3 @@ nav a:hover::after {
     transform: scaleX(1);
 }
 
-.contenido-pelicula {
-    margin-left: 250px; /* Ajusta el espacio del ancho del menú */
-    padding: 15px;
-}
