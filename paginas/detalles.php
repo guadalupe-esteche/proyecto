@@ -16,16 +16,16 @@ $conexion = conectar();
     <script src="../js/detalles.js" defer></script>
 </head>
 <body>
-    <header class="header-detalles">
-        <h1>Detalles de la Película</h1>
-    </header>
-
-    <nav>
-        <ul class="menu-horizontal">
-            <li><a href="../index.php">Inicio</a></li>
-            <li><a href="explorar.php">Explorar</a></li>
-            <li><a href="contacto.php">Contacto</a></li>
-        </ul>
+    <nav class="nav-explorar">
+        <div class="nav-container"> 
+            <div class="nav-left">
+                <a href="../index.php">Luz, Cámara, Blog</a>
+            </div>
+            <div class="nav-right">
+                <a href="explorar.php">Explorar</a>
+                <a href="contacto.php">Contacto</a>
+            </div>
+        </div>
     </nav>
 
     <main class="pagina-peliculas">

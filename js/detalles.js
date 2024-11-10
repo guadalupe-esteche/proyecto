@@ -7,6 +7,8 @@ const likeButton = document.getElementById('like-btn');
 const dislikeButton = document.getElementById('dislike-btn');
 const likeContadorDisplay = document.getElementById('like-contador');
 const dislikeContadorDisplay = document.getElementById('dislike-contador');
+const idUsuario = 1; // Aquí asigna el ID del usuario que esté autenticado
+const idPelicula = new URLSearchParams(window.location.search).get("id_pelicula");
 
 // Añadimos un evento 'click' al botón de Like
 likeButton.addEventListener('click', () => {
@@ -29,52 +31,28 @@ likeButton.addEventListener('click', () => {
     mostrarNotificacion('¡Te ha gustado esta pelicula!')
 });
 
-// Añadimos un evento 'click' al botón de Dislike
-dislikeButton.addEventListener('click', () => {
-    if (dislikeButton.classList.contains('disliked')) {
-        // Si ya está en "dislike", revertimos el "dislike"
-        dislikeButton.classList.remove('disliked');
-        dislikeContador--;
-    } else {
-        // Si se da "dislike", se incrementa el contador
-        dislikeButton.classList.add('disliked');
-        dislikeContador++;
-        // Si se había hecho "like", lo quitamos
-        if (likeButton.classList.contains('liked')) {
-            likeButton.classList.remove('liked');
-            likeContador--;
+function reaccionar(reaccion) {
+    fetch("../php/reaccionar.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: `id_usuario=${idUsuario}&id_pelicula=${idPelicula}&like_dislike=${reaccion}`,
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === "inserted") {
+            document.getElementById("mensaje-notificacion").textContent = `Has dado ${data.reaction === "like" ? "like" : "dislike"} a la película.`;
+        } else if (data.status === "deleted") {
+            document.getElementById("mensaje-notificacion").textContent = `Reacción eliminada.`;
         }
-    }
-    // Actualizamos la visualización del contador
-    updateCounts();
-    mostrarNotificacion('No te ha gustado esta pelicula')
-});
-
-// Función para actualizar los contadores en la página
-function updateCounts() {
-    likeContadorDisplay.textContent = likeContador;
-    dislikeContadorDisplay.textContent = dislikeContador;
+        document.getElementById("notificacion").style.display = "block";
+        setTimeout(() => {
+            document.getElementById("notificacion").style.display = "none";
+        }, 2000);
+    })
+    .catch(error => console.error("Error:", error));
 }
 
-// Función para mostrar la notificación emergente
-function mostrarNotificacion(mensaje) {
-    const notificacion = document.getElementById('notificacion');
-    const mensajeNotificacion = document.getElementById('mensaje-notificacion');
-
-    // Establecer el mensaje de la notificación
-    mensajeNotificacion.textContent = mensaje;
-
-    // Mostrar la notificación
-    notificacion.style.display = 'block';
-    notificacion.classList.remove('ocultar');
-
-    // Ocultar la notificación después de 3 segundos
-    setTimeout(() => {
-        notificacion.classList.add('ocultar');
-
-        // Después de 500ms (tiempo de la transición), ocultamos completamente el elemento
-        notificacion.addEventListener('transitionend', () => {
-            notificacion.style.display = 'none';
-        }, { once: true });  // Asegura que solo se ejecute una vez
-    }, 3000);  // Tiempo visible de la notificación (3 segundos)
-}
+likeBtn.addEventListener("click", () => reaccionar("like"));
+dislikeBtn.addEventListener("click", () => reaccionar("dislike"));
