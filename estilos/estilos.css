@@ -506,47 +506,6 @@ section {
     /* Elimina el subrayado del enlace */
 }
 
-table.tabla-generos {
-    width: 80%;
-    max-width: 600px;
-    border-spacing: 0 10px;
-    border-collapse: separate;
-    background-color:#5d1f22; /* Fondo bordó */
-}
-
-.tabla-generos tbody {
-    align-items: center;
-}
-
-.tabla-generos th,
-.tabla-generos td {
-    padding: 4px;
-    text-align: center;
-    padding: 20px;
-    color: white; /* Texto blanco */
-    border: none; /* Sin bordes */
-}
-
-.tabla-generos th {
-    background: none; /* Sin fondo adicional */
-    font-size: 1.1em;
-}
-
-
-
-.tabla-generos td {
-    background-color: transparent;
-    box-shadow: none; /* Sin sombras */
-    height: 20px;
-    transition: transform 0.3s ease, font-size 0.3s ease;
-    display: flex; /* Flexbox en cada celda para centrar contenido */
-    justify-content: center; /* Centrado horizontal */
-    align-items: center; /* Centrado vertical */
-}
-
-.tabla-generos tr:hover td {
-    transform: scale(1.1); /* Agranda el texto al pasar el mouse */
-}
 
 .tabla-generos a {
     color: #ede7e2;
@@ -560,6 +519,16 @@ table.tabla-generos {
     color: #ffffff; /* Texto blanco al pasar el mouse */
     transition: color 0.3s;
 }
+
+.pelicula-detalle {
+    width: 60%;
+    margin: 0 auto; /* Centrado horizontal */
+    background-color: #fff; /* Color de fondo, puedes cambiarlo si deseas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Opcional: sombra para destacar */
+    padding: 20px; /* Opcional: espaciado interno */
+    border-radius: 10px; /* Opcional: bordes redondeados */
+}
+
 
 .header-detalles {
     background-color:#bc0805;

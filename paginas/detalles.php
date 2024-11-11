@@ -29,7 +29,7 @@ $conexion = conectar();
     </nav>
 
     <main class="pagina-peliculas">
-        <div class="pelicula"> 
+        <div class="pelicula-detalle"> 
         <?php
         if ($conexion) {
             // Obtener el ID de la película desde la URL
