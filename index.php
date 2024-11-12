@@ -82,7 +82,7 @@ if (isset($_SESSION['nombre'])) {
                 <p class="respuesta">Puedes sugerir películas en la siguiente sección</p>
             </div>
 
-            <form method="post" action="sugerir_pelicula.php">
+            <form method="post" action="paginas/sugerir_pelicula.php">
                 Sugerir películas:<br>
                 <textarea name="comentarios" rows="3" cols="60" required placeholder="Sugiere una película..."></textarea>
                 <br>

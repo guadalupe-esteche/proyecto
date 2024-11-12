@@ -16,15 +16,28 @@ toggles.forEach(function (toggle) {
     });
 });
 
-// Mostrar un mensaje de confirmación del formulario en lugar de recargar la página
 document.addEventListener("DOMContentLoaded", function () {
-    // Selecciona el formulario
     var form = document.querySelector("form");
 
-    // Evita que el formulario se envíe y muestra un mensaje
     form.addEventListener("submit", function (event) {
-        event.preventDefault(); // Evita el envío del formulario
-        alert("Formulario enviado exitosamente."); // Muestra un mensaje
+        event.preventDefault(); // Evita el envío tradicional
+
+        // Recoge los datos del formulario
+        var formData = new FormData(form);
+
+        // Enviar los datos a sugerir_pelicula.php usando fetch
+        fetch('paginas/sugerir_pelicula.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text()) // Obtiene la respuesta del servidor
+        .then(data => {
+            alert("Formulario enviado exitosamente."); // Muestra mensaje de éxito
+            console.log(data); // Muestra la respuesta en consola si es necesario
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert("Hubo un error al enviar el formulario.");
+        });
     });
 });
-

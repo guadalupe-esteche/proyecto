@@ -19,7 +19,7 @@ if (isset($_GET['salir'])) {
     }
 
     // Redirigir al usuario
-    echo "<script>window.location.href = '$redirect_url';</script>";
+    header("Location: $redirect_url");
     exit();  // Terminar el script después de la redirección
 }
 
@@ -46,6 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($usuario && password_verify($contraseña, $usuario['contraseña'])) {
                 // Guardar el nombre del usuario en la sesión
                 $_SESSION['nombre'] = $usuario['nombre'];
+                $_SESSION['usuario_id'] = $usuario['id_usuario'];
 
                 // Obtener la URL de redirección si existe, o por defecto redirigir a index.php
                 $redirect_url = isset($_POST['redirect_url']) ? $_POST['redirect_url'] : '../index.php';
