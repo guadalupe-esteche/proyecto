@@ -49,7 +49,7 @@ if (isset($_SESSION['nombre'])) {
         <?php
             if (!empty($_SESSION['nombre'])) {
                 ?>
-                 <a href="paginas/login.php?salir=ok">SALIR</a>
+                 <a href="paginas/login.php?salir=ok&redirect=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>">SALIR</a>
                 <?php
             }
         ?>

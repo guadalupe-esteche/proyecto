@@ -94,7 +94,6 @@ header {
 }
 
 
-
 .header-index a {
     position: absolute;
     top: 20px; 
@@ -503,7 +502,6 @@ section {
     color: inherit;
     /* Hereda el color del texto del contenedor (esto hace que el enlace tome el color del texto normal) */
     text-decoration: none;
-    /* Elimina el subrayado del enlace */
 }
 
 
@@ -920,3 +918,31 @@ nav a:hover::after {
     transform: scaleX(1);
 }
 
+.btn-salir {
+    position: absolute;
+    top: 20px; 
+    right: 20px; 
+    background-color:#140f07; 
+    color:#9e0517; 
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none; 
+    font-weight: bold;
+    font-family: 'DM Serif Text', serif;
+    transition: background-color 0.3s;
+    margin-top: 40px;
+}
+
+.btn-salir:hover {
+    background-color: #FF3B3F; 
+}
+
+#login-notification .inicio-sesion {
+    font-weight: bold; /* Hacer el texto en negrita */
+    font-size: 16px; /* Tamaño de fuente */
+}
+
+/* Efecto cuando el mouse pasa por encima */
+#login-notification .inicio-sesion:hover {
+    text-decoration: underline; /* Subrayado en hover */
+}

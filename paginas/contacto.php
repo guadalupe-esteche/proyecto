@@ -86,6 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="password" id="login_password" name="login_password" required placeholder="Contraseña">
 
                     <button type="submit">Iniciar Sesión</button>
+                    <input type="hidden" name="redirect_url" value="<?php echo isset($_GET['redirect']) ? $_GET['redirect'] : '../index.php'; ?>">
                     <p>¿No tienes cuenta? <a href="#" id="show-registro">Regístrate aquí</a></p>
                 </form>
             </div>

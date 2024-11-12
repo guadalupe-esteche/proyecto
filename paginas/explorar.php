@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../conexion/conexion.php'; // Conectar a la base de datos
 ?>
 <!DOCTYPE html>
@@ -41,6 +42,14 @@ include '../conexion/conexion.php'; // Conectar a la base de datos
                 <li><a href="#basadasenlibros">Basadas en libros</a></li>
             </ul>
         </nav>
+
+        <?php
+        if (!empty($_SESSION['nombre'])) {
+            ?>
+                <a href="login.php?salir=ok&redirect=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>" class="btn-salir">SALIR</a>
+            <?php
+        }
+        ?>
 
         <main class="pagina-peliculas">
             <div id="contenidoPelicula" class="contenido-pelicula centrado">

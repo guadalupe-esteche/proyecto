@@ -5,11 +5,24 @@ $conexion = conectar();  // Asignar la conexión retornada por la función conec
 
 
 //cerrar sesion
-if(isset($_GET['salir']))
-{
+if (isset($_GET['salir'])) {
+    // Destruir todas las variables de la sesión
+    session_unset();
+    // Destruir la sesión
     session_destroy();
-    echo "<script>window.location='../index.php';</script>";
+
+    // Verificar si hay una URL de redirección proporcionada
+    if (isset($_GET['redirect']) && !empty($_GET['redirect'])) {
+        $redirect_url = $_GET['redirect'];  // Usar la URL proporcionada
+    } else {
+        $redirect_url = '../index.php';  // Redirigir a index.php por defecto
+    }
+
+    // Redirigir al usuario
+    echo "<script>window.location.href = '$redirect_url';</script>";
+    exit();  // Terminar el script después de la redirección
 }
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $correo = $_POST['login_email'];
@@ -34,11 +47,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Guardar el nombre del usuario en la sesión
                 $_SESSION['nombre'] = $usuario['nombre'];
 
-                // Mostrar un alert de inicio de sesión exitoso
-                echo "<script>alert('Inicio de sesión exitoso.');</script>";
+                // Obtener la URL de redirección si existe, o por defecto redirigir a index.php
+                $redirect_url = isset($_POST['redirect_url']) ? $_POST['redirect_url'] : '../index.php';
 
-                // Redirigir a la página de bienvenida después de mostrar el alert
-                echo "<script>window.location.href = '../index.php';</script>";
+                // Redirigir a la página solicitada
+                echo "<script>window.location.href = '$redirect_url';</script>";
                 exit();
             } else {
                 echo "<script>alert('Correo o contraseña incorrectos.');</script>";
