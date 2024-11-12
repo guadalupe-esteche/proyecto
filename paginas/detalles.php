@@ -25,6 +25,9 @@ $conexion = conectar();
     <title><?php echo htmlspecialchars($pelicula['titulo'] ?? 'Detalles de la Película'); ?></title>
     <link rel="stylesheet" href="../estilos/estilos.css">
     <link rel="stylesheet" href="../estilos/responsive.css">
+    <script>
+        const idPelicula = <?php echo json_encode($id_pelicula); ?>;
+    </script>
     <script src="../js/detalles.js" defer></script>
 </head>
 <body data-id-pelicula="<?php echo htmlspecialchars($id_pelicula); ?>">
@@ -43,7 +46,7 @@ $conexion = conectar();
     <?php
         if (!empty($_SESSION['nombre'])) {
             ?>
-                <a href="login.php?salir=ok&redirect=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>" class="btn-salir">SALIR</a>
+                <a href="login.php?salir=ok&redirect=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>" class="btn-salir">Cerrar sesión</a>
             <?php
         }
     ?>
@@ -93,44 +96,6 @@ $conexion = conectar();
                         echo "<iframe src='" . htmlspecialchars($url_trailer_embed) . "' title='YouTube video player' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe>";
                         echo "</div>";
                     }
-
-                    // Obtener el conteo de likes y dislikes de la película actual
-                    $sql = "SELECT 
-                    COUNT(CASE WHEN like_dislike = 1 THEN 1 END) AS likes,
-                    COUNT(CASE WHEN like_dislike = 0 THEN 1 END) AS dislikes
-                    FROM reacciones
-                    WHERE id_pelicula = ?";
-                    $stmt = $conexion->prepare($sql);
-
-                    if ($stmt) {
-                    $stmt->bind_param("i", $id_pelicula);
-                    $stmt->execute();
-                    $resultado = $stmt->get_result();
-                    $reacciones = $resultado->fetch_assoc();
-
-                    $likes = $reacciones['likes'] ?? 0;
-                    $dislikes = $reacciones['dislikes'] ?? 0;
-
-                    // Mostrar los contadores de likes y dislikes
-                    echo "<p><strong>Me gusta:</strong> " . $likes . "</p>";
-                    echo "<p><strong>No me gusta:</strong> " . $dislikes . "</p>";
-                    } else {
-                    echo "Error al obtener las reacciones: " . $conexion->error;
-                    }
-
-                     // Mostrar los botones de "Me gusta" y "No me gusta" solo si el usuario está logueado
-                    if ($usuarioLogueado): ?>
-                        <h4>¿Te gustó esta película?</h4>
-                        <button id='like-btn' class='like button'><img src='../imagenes/like.png' title='like'><span id='like-contador'>0</span></button>
-                        <button id='dislike-btn' class='dislike button'><img src='../imagenes/dislike.png' title='dislike'><span id='dislike-contador'>0</span></button>
-                    <?php else: ?>
-                        <!-- Mensaje de inicio de sesión si el usuario no está logueado -->
-                        <p id="login-notification" style="color: red;">
-                            Necesita <a href="contacto.php?redirect=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>" class="inicio-sesion">iniciar sesión</a> para votar.
-                        </p>
-                    <?php endif; ?>
-
-                    <?php 
                 } else {
                     echo "<p>No se encontraron detalles de la película.</p>";
                 }
@@ -145,9 +110,6 @@ $conexion = conectar();
             echo "Error al conectar a la base de datos.";
         }
         ?>
-        </div>
-        <div id="notificacion" class="notificacion">
-            <p id="mensaje-notificacion"></p>
         </div>
     </main>
     <footer>
