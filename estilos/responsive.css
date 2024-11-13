@@ -64,7 +64,10 @@
     }
 
     .pagina-peliculas section {
-        gap: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px; /* Espacio entre las películas */
         overflow-x: hidden;
     }
 
@@ -105,7 +108,7 @@
 /* Pantallas medianas (de 769px a 1023px) - Tablets */
 @media (min-width: 769px) and (max-width: 1023px) {
     .pelicula {
-        width: 48%;
+        flex: 0 0 48%;
         margin-bottom: 10px; /* Espacio entre las películas */
     }
 
@@ -115,7 +118,6 @@
     }
 
     section {
-        display: flex;
         justify-content: center; /* Cambiar a center para pantallas medianas */
         flex-wrap: wrap;
         gap: 20px;
@@ -165,6 +167,9 @@
     }
 
     .pagina-peliculas section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Cambiar a center para pantallas medianas */
         gap: 20px;
     }
 
@@ -244,7 +249,8 @@
     }
 
     .pelicula {
-        width: 100%; /* Asegura que cada película ocupe el 100% de la fila */
+        flex: 0 0 100%; /* 100% de ancho para 1 película */
+        margin-bottom: 10px;
     }
 }
 
