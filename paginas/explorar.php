@@ -36,10 +36,10 @@ include '../conexion/conexion.php'; // Conectar a la base de datos
                 <li><a href="#accion">Acción</a></li>
                 <li><a href="#drama">Drama</a></li>
                 <li><a href="#comedia">Comedia</a></li>
-                <li><a href="#cienciaficcion">Ciencia Ficción</a></li>
+                <li><a href="#ciencia_ficcion">Ciencia Ficción</a></li>
                 <li><a href="#terror">Terror</a></li>
                 <li><a href="#romance">Romance</a></li>
-                <li><a href="#basadasenlibros">Basadas en libros</a></li>
+                <li><a href="#basadas_en_libros">Basadas en libros</a></li>
             </ul>
         </nav>
 

@@ -33,6 +33,7 @@ if (isset($_SESSION['nombre'])) {
         <div class="nav-container"> 
             <div class="nav-left">
                 <a href="index.php">Luz, Cámara, Blog</a>
+                <a href="paginas/cargar_pelicula.php">Administrar</a>
             </div>
             <div class="nav-right">
                 <a href="paginas/explorar.php">Explorar</a>
