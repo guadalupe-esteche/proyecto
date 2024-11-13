@@ -431,12 +431,13 @@ section {
 .pagina-peliculas section {
     display: flex;
     /*ordena los elementos en una misma fila*/
-    gap: 20px;
-    flex-wrap: wrap;
+    gap: 10px;
+    flex-wrap: nowrap;
     justify-content: center;
     overflow-x: auto;
     /* Permite el deslizamiento horizontal */
     scrollbar-width: none;
+    width: 100%;
     position: relative;
     background-color: #ffbe5d;
 }

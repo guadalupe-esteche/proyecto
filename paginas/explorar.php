@@ -34,7 +34,7 @@ include '../conexion/conexion.php'; // Conectar a la base de datos
         <nav id="menuLateral" class="menu-lateral">
             <ul class="tabla-generos">
                 <li><a href="#accion">Acción</a></li>
-                <li><a href="#drama">Drama</li>
+                <li><a href="#drama">Drama</a></li>
                 <li><a href="#comedia">Comedia</a></li>
                 <li><a href="#cienciaficcion">Ciencia Ficción</a></li>
                 <li><a href="#terror">Terror</a></li>
@@ -46,7 +46,7 @@ include '../conexion/conexion.php'; // Conectar a la base de datos
         <?php
         if (!empty($_SESSION['nombre'])) {
             ?>
-                <a href="login.php?salir=ok&redirect=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>" class="btn-salir">SALIR</a>
+                <a href="login.php?salir=ok&redirect=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>" class="btn-salir">Cerrar sesión</a>
             <?php
         }
         ?>
@@ -69,10 +69,9 @@ include '../conexion/conexion.php'; // Conectar a la base de datos
                     // Iterar sobre cada género y mostrar sus películas
                     foreach ($generos as $genero) {
                         echo "<h2>Películas de " . htmlspecialchars($genero['nombre_genero']) . "</h2>";
-                        $id_genero = str_replace(' ', '', strtolower(htmlspecialchars($genero['nombre_genero'])));
+                        $id_genero = strtolower(str_replace(' ', '_', htmlspecialchars($genero['nombre_genero'])));
                         echo "<section id='" . $id_genero . "'>";
-                        echo "<button class='nav-btn izq' onclick=\"deslizarSeccion('izquierda', '" . strtolower(htmlspecialchars($genero['nombre_genero'])) . "')\">&lt;</button>";
-
+                        echo "<button class='nav-btn izq' onclick=\"deslizarSeccion('izquierda', '$id_genero')\">&gt;</button>";
                         // Consulta para obtener las películas de este género
                         $sql_peliculas = "SELECT id_pelicula, titulo, descripcion, imagen FROM peliculas WHERE id_genero = ?";
                         $stmt_peliculas = $conexion->prepare($sql_peliculas);
@@ -88,7 +87,7 @@ include '../conexion/conexion.php'; // Conectar a la base de datos
                             echo "</div>";
                         }
 
-                        echo "<button class='nav-btn der' onclick=\"deslizarSeccion('derecha', '" . strtolower(htmlspecialchars($genero['nombre_genero'])) . "')\">&gt;</button>";
+                        echo "<button class='nav-btn der' onclick=\"deslizarSeccion('derecha', '$id_genero')\">&gt;</button>";
                         echo "</section>";
                     }
                 } else {
