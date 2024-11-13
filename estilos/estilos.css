@@ -847,19 +847,6 @@ footer p {
     width: 100%;
 }
 
-.tabla-generos td a {
-    display: flex;
-    align-items: center;
-    padding: 5px 0;
-    text-decoration: none;
-    color: white;
-}
-
-.tabla-generos img {
-    width: 24px;
-    height: 24px;
-    margin-right: 8px;
-}
 
 /* Estilos para el contenido principal */
 .pagina-peliculas {
