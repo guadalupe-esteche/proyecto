@@ -113,7 +113,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </section>
 
-    <!-- Imagen en la derecha -->
     <div class="imagen-lateral">
         <img src="../imagenes/fondo1.jpg" alt="Imagen Lateral">
     </div>

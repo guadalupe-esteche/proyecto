@@ -34,7 +34,7 @@
         <label for="genero">Género:</label>
         <select id="genero" name="genero" required>
             <?php
-            // Conectar a la base de datos para obtener los géneros
+            
             include '../conexion/conexion.php';
             $conexion = conectar();
             if ($conexion) {

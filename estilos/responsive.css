@@ -33,8 +33,8 @@
     nav {
         display: flex;
         justify-content: center; /* Centra los enlaces de navegación */
-        flex-wrap: wrap; /* Permite que los elementos se muevan a la siguiente línea si es necesario */
-        margin: 10px 0; /* Añade un margen superior e inferior */
+        flex-wrap: wrap;
+        margin: 10px 0; 
     }
 
     nav a {
@@ -181,7 +181,7 @@
 /* Pantallas grandes (desde 1024px en adelante) */
 @media (min-width: 1024px) {
     .pelicula {
-        width: 23%; /* Opción para mostrar 4 películas por fila en pantallas grandes */
+        width: 23%; 
         margin-bottom: 10px; /* Espacio entre las películas */
     }
 
@@ -263,15 +263,15 @@
         transform: translateX(-100%);
         position: fixed;
         z-index: 10;
-        max-width: 300px; /* Limitar el ancho máximo */
+        max-width: 300px; 
     }
 
-    /* Cuando el menú está abierto en pantallas medianas */
+    
     .menu-lateral.abierto {
         transform: translateX(0);
     }
 
-    /* Ajustar el contenido para centrarse sin desplazamiento del menú */
+  
     .contenido-pelicula {
         margin-left: 0;
         padding: 15px;
@@ -280,10 +280,10 @@
 
 /* Estilos para pantallas pequeñas */
 @media (max-width: 768px) {
-    /* Menú lateral más compacto en pantallas pequeñas */
+ 
     .menu-lateral {
         width: 60%; /* Ocupa el 60% del ancho de la pantalla */
-        max-width: 200px; /* Limitar el ancho máximo en pantallas pequeñas */
+        max-width: 200px;
         transform: translateX(-100%);
         transition: transform 0.3s ease;
         position: fixed;

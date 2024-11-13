@@ -23,7 +23,7 @@ $(document).ready(function() {
             $("#error-mensaje").show();  // Mostrar mensaje de error
         } else {
             $("#error-mensaje").hide();  // Ocultar mensaje de error si todo está bien
-            // No llamar a event.preventDefault() aquí, para permitir el envío del formulario
+           
         }
     });
 });

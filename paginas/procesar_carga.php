@@ -30,13 +30,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Mover la imagen desde el archivo temporal a la carpeta de imágenes
             if (move_uploaded_file($imagen_tmp, $ruta_imagen)) {
                 echo "La imagen se ha movido correctamente a: " . $ruta_imagen . "<br>";
-                // Aquí puedes ver la ruta completa de la imagen en el navegador.
+               
                 // Conectar a la base de datos
                 $conexion = conectar();
 
                 if ($conexion) {
                     // Preparar la consulta para insertar la película
-                    // En lugar de solo $imagen_nombre, estamos guardando la ruta completa de la imagen
+                    
                     $sql = "INSERT INTO peliculas (titulo, descripcion, imagen, id_genero, anio, trailer) 
                             VALUES (?, ?, ?, ?, ?, ?)";
                     $stmt = $conexion->prepare($sql);

@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $correo = $_POST['login_email'];
     $contraseña = $_POST['login_password'];
 
-    // Asegurarse de que la conexión fue exitosa antes de continuar
+    // Asegurar de que la conexión fue exitosa antes de continuar
     if ($conexion) {
         // Buscar el usuario por correo (con sintaxis MySQLi)
         $sql = "SELECT * FROM usuarios WHERE correo = ?";

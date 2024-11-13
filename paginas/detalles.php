@@ -6,7 +6,6 @@ if (isset($_SESSION['nombre'])) {
     $nombreUsuario = htmlspecialchars($_SESSION['nombre']);
     $usuarioLogueado = true;
 } else {
-    // Valor por defecto cuando no hay sesión iniciada
     $nombreUsuario = "Invitado";
     $usuarioLogueado = false;
 }
@@ -92,7 +91,7 @@ $conexion = conectar();
                     if (!empty($pelicula['trailer'])) {
                         $url_trailer_embed = obtenerUrlEmbed($pelicula['trailer']);
                         echo "<h3>Tráiler Oficial</h3>";
-                        echo "<div class='trailer'>";  // Div para el tráiler
+                        echo "<div class='trailer'>"; 
                         echo "<iframe src='" . htmlspecialchars($url_trailer_embed) . "' title='YouTube video player' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe>";
                         echo "</div>";
                     }
