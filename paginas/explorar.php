@@ -53,10 +53,6 @@ include '../conexion/conexion.php'; // Conectar a la base de datos
 
         <main class="pagina-peliculas">
             <div id="contenidoPelicula" class="contenido-pelicula centrado">
-                <h1>¿Qué sección deseas explorar?</h1>
-                <input type="text" id="buscar" placeholder="Buscar películas..." onkeyup="filtrarPeliculas()"
-                    onkeydown="detenerEnter(event)">
-                <p id="mensaje-no-encontrado">No se encontró ninguna película con ese nombre</p>
                 <?php
                 $conexion = conectar();
                 if ($conexion) {
@@ -82,7 +78,7 @@ include '../conexion/conexion.php'; // Conectar a la base de datos
                         // Mostrar películas
                         foreach ($peliculas as $pelicula) {
                             echo "<div class='pelicula'>";
-                           echo "<h3><a href='detalles.php?id_pelicula=" . htmlspecialchars($pelicula['id_pelicula']) . "' class='pelicula-titulo'>" . htmlspecialchars($pelicula['titulo']) . "</a></h3>";
+                            echo "<h3><a href='detalles.php?id_pelicula=" . htmlspecialchars($pelicula['id_pelicula']) . "' class='pelicula-titulo'>" . htmlspecialchars($pelicula['titulo']) . "</a></h3>";
                             echo "<a href='detalles.php?id_pelicula=" . htmlspecialchars($pelicula['id_pelicula']) . "'><img src='../imagenes/" . htmlspecialchars($pelicula['imagen']) . "' alt='" . htmlspecialchars($pelicula['titulo']) . "' class='pelicula-img'></a>";
                             echo "</div>";
                         }

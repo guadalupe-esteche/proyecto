@@ -1,0 +1,93 @@
+/* Estilos para el body */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;  /* Apila los elementos de manera vertical */
+    justify-content: flex-start; /* Alinea los elementos al principio de la página */
+    align-items: center;     /* Centra los elementos horizontalmente */
+    height: 100vh;           /* 100% de la altura de la ventana */
+}
+
+/* Contenedor principal del nav */
+nav {
+    width: 100%;             /* Hace que el nav ocupe todo el ancho */
+    background-color: #333;
+    padding: 15px 0;
+    text-align: center;      /* Centra el texto dentro del nav */
+    margin-bottom: 20px;     /* Añade un margen debajo del nav */
+}
+
+nav a {
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+    margin: 0 15px;
+    padding: 10px;
+}
+
+nav a:hover {
+    background-color: #575757;
+    border-radius: 5px;
+}
+
+/* Título de la página */
+h1 {
+    font-size: 2em;
+    color: #333;
+    text-align: center;
+    margin-top: 20px;   /* Añadir separación entre el nav y el título */
+    margin-bottom: 20px; /* Separación con el siguiente contenido */
+}
+
+/* Contenedor principal del formulario */
+form {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;  /* Controla el ancho máximo del formulario */
+    margin-top: 30px;  /* Separación respecto al título */
+}
+
+/* Campos del formulario */
+input[type="text"],
+textarea,
+select,
+input[type="number"],
+input[type="url"],
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+/* Estilo para el área de descripción */
+textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+/* Botón de envío */
+button {
+    background-color: #007bff;
+    color: #ffffff;
+    font-size: 1.2em;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
