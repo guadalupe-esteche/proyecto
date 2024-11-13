@@ -46,7 +46,7 @@ include '../conexion/conexion.php'; // Conectar a la base de datos
         <?php
         if (!empty($_SESSION['nombre'])) {
             ?>
-                <a href="login.php?salir=ok&redirect=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>" class="btn-salir">Cerrar sesión</a>
+                <a href="login.php?salir=ok&redirect=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>" class="btn-salir">CERRAR SESIÓN</a>
             <?php
         }
         ?>

@@ -61,16 +61,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
 
 <nav class="nav-index">
-    <div class="nav-left">
-        <a href="../index.php">Luz, cámara, blog</a>
-    </div>
-    <div class="nav-right">
-        <a href="explorar.php">Explorar</a>
-        <a href="contacto.php">Contacto</a>
+    <div class="nav-container"> 
+        <div class="nav-left">
+            <a href="../index.php">Luz, cámara, blog</a>
+        </div>
+        <div class="nav-right">
+            <a href="explorar.php">Explorar</a>
+            <a href="contacto.php">Contacto</a>
+        </div>
     </div>
 </nav>
 
-    
 <main class="contenedor-principal">
     <section id="formulario">
         <h2>Regístrate o Inicia Sesión</h2>
