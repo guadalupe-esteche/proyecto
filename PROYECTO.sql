@@ -66,7 +66,7 @@ INSERT INTO peliculas (titulo, imagen, descripcion, id_genero, anio, trailer) VA
 ('Ciudades de Papel', '../imagenes/ciudadesdepapel.jpg', 'Descripción: Quentin busca a su enigmática vecina después de una noche de aventuras. Dirigido por: Jake Schreier. Reparto: Nat Wolff, Cara Delevingne, Halston Sage, más.', 7, 2015, 'https://www.youtube.com/watch?v=5dPnKbvO5xQ&t=6s'),
 ('El niño con el pijama a rayas', '../imagenes/elniñorayas.jpg', 'Descripción: Un niño desarrolla una amistad prohibida con un niño judío en la Segunda Guerra Mundial. Dirigido por: Mark Herman. Reparto: Vera Farmiga, David Thewlis, Rupert Friend, más.', 7, 2008, 'https://www.youtube.com/watch?v=rzow19gyNqQ');
 
-drop table usuarios;
+drop table peliculas;
 select * from sugerencias;
 select * from usuarios;
 select * from peliculas;
