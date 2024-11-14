@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $sql = "INSERT INTO peliculas (titulo, descripcion, imagen, id_genero, anio, trailer) 
                             VALUES (?, ?, ?, ?, ?, ?)";
                     $stmt = $conexion->prepare($sql);
-                    $stmt->bind_param("ssisds", $titulo, $descripcion, $ruta_imagen, $genero, $anio, $trailer); // Cambié $imagen_nombre por $ruta_imagen
+                    $stmt->bind_param("sssisi", $titulo, $descripcion, $ruta_imagen, $genero, $anio, $trailer);
 
                     // Ejecutar la consulta
                     if ($stmt->execute()) {
