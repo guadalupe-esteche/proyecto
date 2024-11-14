@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 exit();
             } else {
                 echo "<script>alert('Correo o contraseña incorrectos.');</script>";
-                echo "<script>window.location.href = '$redirect_url';</script>";
+                echo "<script>window.location.href = 'contacto.php';</script>";
             }
         } else {
             echo "Error en la preparación de la consulta: " . $conexion->error;
