@@ -33,7 +33,9 @@ if (isset($_SESSION['nombre'])) {
         <div class="nav-container"> 
             <div class="nav-left">
                 <a href="index.php">Luz, Cámara, Blog</a>
-                <a href="paginas/cargar_pelicula.php">Administrar</a>
+                <?php if (isset($_SESSION['es_admin']) && $_SESSION['es_admin'] == 1): ?>
+                    <a href="paginas/cargar_pelicula.php">Administrar</a>
+                <?php endif; ?>
             </div>
             <div class="nav-right">
                 <a href="paginas/explorar.php">Explorar</a>

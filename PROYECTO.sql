@@ -72,6 +72,14 @@ select * from usuarios;
 select * from peliculas;
 select * from generos;
 
+ALTER TABLE usuarios ADD es_admin TINYINT(1) DEFAULT 0;
+
+UPDATE usuarios SET es_admin = 1 WHERE correo = 'admin@gmail.com';
+
+-- usuario admin, correo admin@gmail.com, contraseña: admin1234
+
+
+
 
 
 

@@ -45,8 +45,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Verificar la contraseña
             if ($usuario && password_verify($contraseña, $usuario['contraseña'])) {
                 // Guardar el nombre del usuario en la sesión
+                // Guardar los datos del usuario en la sesión
                 $_SESSION['nombre'] = $usuario['nombre'];
                 $_SESSION['usuario_id'] = $usuario['id_usuario'];
+                $_SESSION['es_admin'] = $usuario['es_admin'];  // Guardar si el usuario es administrador
 
                 // Obtener la URL de redirección si existe, o por defecto redirigir a index.php
                 $redirect_url = isset($_POST['redirect_url']) ? $_POST['redirect_url'] : '../index.php';
@@ -56,6 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 exit();
             } else {
                 echo "<script>alert('Correo o contraseña incorrectos.');</script>";
+                echo "<script>window.location.href = '$redirect_url';</script>";
             }
         } else {
             echo "Error en la preparación de la consulta: " . $conexion->error;
